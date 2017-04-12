@@ -5,7 +5,7 @@ var perso1_sur_la_map = false;
 var perso2_sur_la_map = false;
 var nb_arme_sur_la_map = 0;
 var nombreCaseX = 10;
-var nombreCaseY = 100;
+var nombreCaseY = 10;
 
 
 
@@ -22,17 +22,17 @@ function generate_random(max) {
 function generate_map(max) {
     for (var i = 0; i < nombreCaseX; i++) {
         for (var j = 0; j < nombreCaseY; j++) {
-            //$('#map').append("<img src='../img/perso1.png' class='perso' id='perso1' style='left:" + 82 * j + "px; top:" + 82 * i + "px'>");
-            //for (var i = 0; i < max; i++) {
             var map = Object.create(Map); // création de la map
             var random = generate_random(20); // fonction generate_random avec en paramètre 20 pour que le rendu soit plus aléatoire
             //TODO : gestion cas particulier si jamais random == 1
             if (random == 1 && perso1_sur_la_map == false) { // si random est égal à 1 et que le perso1 n'est pas encore sur la map
                 $("#map").append("<img src='../img/perso1.png' class='persoClass' id='perso1' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
+                $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso1_sur_la_map = true;
                 tabPosition.push(3); // id du perso1
             } else if (random == 12 && perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
                 $("#map").append("<img src='../img/perso2.png' class='persoClass' id='perso2' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
+                $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso2_sur_la_map = true;
                 tabPosition.push(4); // id du perso2
             } else if (random == 3 && nb_arme_sur_la_map < 1) { // si random est égal à 3 et que l' arme1 n'est pas encore sur la map
@@ -57,12 +57,9 @@ function generate_map(max) {
             } else { // pour tout autre valeur de random on insert systématiquement une case vide
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 tabPosition.push(0); // id de la case vide
-            };
-
+            }
             console.log(j);
-            tabPosition[j] = map; // incrémente le tableau
         }
-        return tabPosition;
     }
 }
 
@@ -75,46 +72,47 @@ generate_map(100);
 //fonction qui permet de gérer les déplacements des personnages
 function deplace() {
 
-    var ligne = parseInt($('#persoClass').css('top')) / 30;
-    var colonne = parseInt($('#persoClass').css('left')) / 30;
-    var longueur = 9;
-    var index = ligne * longueur + colonne;
+    var ligne = parseInt($('#perso1').css('top')) / 100; // position en x
+    var colonne = parseInt($('#perso1').css('left')) / 100; // position en Y
+    var longueur = 10; //10 cases par lignes
+    var index = ligne * longueur + colonne; // position actuelle du perso avant déplacement
 
 
-    $(document).keydown(function(e) {
+    $(document).keydown(function(e) { //ou est-ce que se trouve le perso
         console.log(e.which);
         if (e.which == 39) { // Vers la droite
-            ligne--;
+            colonne++; // colonne suivant
             index = ligne * colonne + longueur; // l'index de la case suivant
-            //if (mapping[index] == 0) { // la case suivante est une case vide
-            $('#persoClass').css('left', colonne + 100); // donc on se déplace
-            //}
+            if (tabPosition[index] == 0) { // la case suivante est une case vide
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
+            }
         }
 
         if (e.which == 37) { // Vers la gauche
-            ligne--;
+            colonne--;
             index = ligne * colonne + longueur; // l'index de la case suivant
-            //if (mapping[index] == 0) { // la case suivante est une case vide
-            $('#persoClass').css('left', colonne - 100); // donc on se déplace
-            //}
+            if (tabPosition[index] == 0) { // la case suivante est une case vide
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
+            }
         }
 
         if (e.which == 40) { // Vers le bas
-            ligne--;
+            ligne++;
             index = ligne * longueur + colonne; // l'index de la case suivant
-            //if (mapping[index] == 0) { // la case suivante est une case vide
-            $('#persoClass').css('top', ligne + 100); // donc on se déplace
-            //}
+            if (tabPosition[index] == 0) { // la case suivante est une case vide
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
+            }
         }
 
         if (e.which == 38) { // Vers le haut
             ligne--;
             index = ligne * longueur + colonne; // l'index de la case suivant
-            //if (mapping[index] == 0) { // la case suivante est une case vide
-            $('#persoClass').css('top', ligne - 100); // donc on se déplace
-            //}
+            if (tabPosition[index] == 0) { // la case suivante est une case vide
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
+            }
         }
     })
 }
 
 deplace();
+
