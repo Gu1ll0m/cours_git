@@ -51,7 +51,7 @@ function generate_map() {
                 $("#map").append("<img src='../img/arme4.png' class='armeClass' id='arme4'>");
                 nb_arme_sur_la_map++;
                 tabPosition.push(2); // id de l'arme 1
-            } else if ((random == 7 || random == 13)) { // si random est égal à 7 ou si random est égal à 13 on insert un bloc
+            } else if ((random == 7 || random == 13 || random == 9 || random == 15)) { // si random est égal à 7 ou si random est égal à 13 on insert un bloc
                 $("#map").append("<img src='../img/bloc.png' class='blocClass' id='bloc'>");
                 tabPosition.push(1); // id du bloc
             } else { // pour tout autre valeur de random on insert systématiquement une case vide
@@ -78,62 +78,23 @@ function deplace() {
     var longueur = 10; //10 cases par lignes
     var index = ligne * longueur + colonne; // position actuelle du perso avant déplacement
 
-    //for (var i = 0; i < 3; i++) { // boucle permettant 3 tours
-    //alert("tour de boucle" + " " + i);
-
     $(document).keydown(function(e) { //ou est-ce que se trouve le perso
-
-        if (e.which == 39) { // Vers la droite
-            console.log("droite");
-            colonne++; // on se dirige vers la colonne suivant
-            index = ligne * colonne + longueur; // l'index de la case suivant
-            console.log("l' index de la case est" + " " + index);
-            if (tabPosition[index] == 0) { // la case suivante est une case vide
-                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
-            } else if (tabPosition[index] == 1) {
-                console.log("Vous faîtes face à un bloc");
-            } else if (tabPosition[index] == 2) {
-                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
-                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
-            } else if (tabPosition[index] == 4) {
-                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
-                console.log("FIGHT"); // ici fonction combat()
-            }
-        }
 
         if (e.which == 37) { // Vers la gauche
             console.log("gauche");
             colonne--; // on se dirige vers la colonne précedante
             index = ligne * colonne + longueur; // l'index de la case suivant
             console.log("l' index de la case est" + " " + index);
-            if (tabPosition[index] == 0) { // la case suivante est une case vide
-                $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
-            } else if (tabPosition[index] == 1) {
+            if (tabPosition[index] == 1) { // bloc
                 console.log("Vous faîtes face à un bloc");
-            } else if (tabPosition[index] == 2) {
+            } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
                 $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
-                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
-            } else if (tabPosition[index] == 4) {
-                $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
-                console.log("FIGHT"); // ici fonction combat()
-            }
-        }
-
-        if (e.which == 40) { // Vers le bas
-            console.log("bas");
-            ligne++; // on se dirige vers la ligne suivante
-            index = ligne * longueur + colonne; // l'index de la case suivant
-            console.log("l' index de la case est" + " " + index);
-            if (tabPosition[index] == 0) { // la case suivante est une case vide
-                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
-            } else if (tabPosition[index] == 1) {
-                console.log("Vous faîtes face à un bloc");
-            } else if (tabPosition[index] == 2) {
-                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
-                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
-            } else if (tabPosition[index] == 4) {
-                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
-                console.log("FIGHT"); // ici fonction combat()
+                if (tabPosition[index] == 2) { // arme
+                    console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+                }
+                if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+                    console.log("FIGHT"); // ici fonction combat()
+                }
             }
         }
 
@@ -142,20 +103,55 @@ function deplace() {
             ligne--; // on se dirige vers la ligne précédante
             index = ligne * longueur + colonne; // l'index de la case suivant
             console.log("l' index de la case est" + " " + index);
-            if (tabPosition[index] == 0) { // la case suivante est une case vide
-                $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
-            } else if (tabPosition[index] == 1) {
+            if (tabPosition[index] == 1) {
                 console.log("Vous faîtes face à un bloc");
-            } else if (tabPosition[index] == 2) {
+            } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
                 $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
-                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
-            } else if (tabPosition[index] == 4) {
-                $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
-                console.log("FIGHT"); // ici fonction combat()
+                if (tabPosition[index] == 2) {
+                    console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+                }
+                if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+                    console.log("FIGHT"); // ici fonction combat()
+                }
+            }
+        }
+
+        if (e.which == 39) { // Vers la droite
+            console.log("droite");
+            colonne++; // on se dirige vers la colonne suivant
+            index = ligne * colonne + longueur; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
+            if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
+                if (tabPosition[index] == 2) {
+                    console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+                }
+                if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+                    console.log("FIGHT"); // ici fonction combat()
+                }
+            }
+        }
+
+        if (e.which == 40) { // Vers le bas
+            console.log("bas");
+            ligne++; // on se dirige vers la ligne suivante
+            index = ligne * longueur + colonne; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
+            if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
+                if (tabPosition[index] == 2) {
+                    console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+                }
+                if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+                    console.log("FIGHT"); // ici fonction combat()
+                }
             }
         }
     })
-    //}
 }
 
 deplace();
