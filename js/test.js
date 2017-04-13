@@ -19,7 +19,7 @@ function generate_random(max) {
 //================================================================================================================================================//
 
 // fonction qui permet la création de la map
-function generate_map(max) {
+function generate_map() {
     for (var i = 0; i < nombreCaseX; i++) {
         for (var j = 0; j < nombreCaseY; j++) {
             var map = Object.create(Map); // création de la map
@@ -58,61 +58,104 @@ function generate_map(max) {
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 tabPosition.push(0); // id de la case vide
             }
-            console.log(j);
+            console.log("case" + " " + i + j);
         }
     }
 }
 
 
-generate_map(100);
+generate_map(nombreCaseX * nombreCaseY);
 
 
 //================================================================================================================================================//
 
-//fonction qui permet de gérer les déplacements des personnages
+//fonction qui permet de gérer les déplacements du personnage 1
 function deplace() {
+
 
     var ligne = parseInt($('#perso1').css('top')) / 100; // position en x
     var colonne = parseInt($('#perso1').css('left')) / 100; // position en Y
     var longueur = 10; //10 cases par lignes
     var index = ligne * longueur + colonne; // position actuelle du perso avant déplacement
 
+    //for (var i = 0; i < 3; i++) { // boucle permettant 3 tours
+    //alert("tour de boucle" + " " + i);
 
     $(document).keydown(function(e) { //ou est-ce que se trouve le perso
-        console.log(e.which);
+
         if (e.which == 39) { // Vers la droite
-            colonne++; // colonne suivant
+            console.log("droite");
+            colonne++; // on se dirige vers la colonne suivant
             index = ligne * colonne + longueur; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
             if (tabPosition[index] == 0) { // la case suivante est une case vide
                 $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
+            } else if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if (tabPosition[index] == 2) {
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
+                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+            } else if (tabPosition[index] == 4) {
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) + 100); // donc on se déplace
+                console.log("FIGHT"); // ici fonction combat()
             }
         }
 
         if (e.which == 37) { // Vers la gauche
-            colonne--;
+            console.log("gauche");
+            colonne--; // on se dirige vers la colonne précedante
             index = ligne * colonne + longueur; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
             if (tabPosition[index] == 0) { // la case suivante est une case vide
                 $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
+            } else if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if (tabPosition[index] == 2) {
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
+                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+            } else if (tabPosition[index] == 4) {
+                $('#perso1').css('left', parseInt($('#perso1').css('left')) - 100); // donc on se déplace
+                console.log("FIGHT"); // ici fonction combat()
             }
         }
 
         if (e.which == 40) { // Vers le bas
-            ligne++;
+            console.log("bas");
+            ligne++; // on se dirige vers la ligne suivante
             index = ligne * longueur + colonne; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
             if (tabPosition[index] == 0) { // la case suivante est une case vide
                 $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
+            } else if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if (tabPosition[index] == 2) {
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
+                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+            } else if (tabPosition[index] == 4) {
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) + 100); // donc on se déplace
+                console.log("FIGHT"); // ici fonction combat()
             }
         }
 
         if (e.which == 38) { // Vers le haut
-            ligne--;
+            console.log("haut");
+            ligne--; // on se dirige vers la ligne précédante
             index = ligne * longueur + colonne; // l'index de la case suivant
+            console.log("l' index de la case est" + " " + index);
             if (tabPosition[index] == 0) { // la case suivante est une case vide
                 $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
+            } else if (tabPosition[index] == 1) {
+                console.log("Vous faîtes face à un bloc");
+            } else if (tabPosition[index] == 2) {
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
+                console.log("Vous vous équipez d'une arme"); // ici fonction equipe()
+            } else if (tabPosition[index] == 4) {
+                $('#perso1').css('top', parseInt($('#perso1').css('top')) - 100); // donc on se déplace
+                console.log("FIGHT"); // ici fonction combat()
             }
         }
     })
+    //}
 }
 
 deplace();
-
