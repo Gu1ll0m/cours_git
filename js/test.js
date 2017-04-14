@@ -31,7 +31,7 @@ function generate_map() {
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso1_sur_la_map = true;
                 tabPosition.push(3); // id du perso1
-            /*} else if (random == 12 && perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
+            } else if (random == 12 && perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
                 $("#map").append("<img src='../img/perso2.png' class='persoClass' id='perso2' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso2_sur_la_map = true;
@@ -55,7 +55,7 @@ function generate_map() {
             } else if ((random == 7 || random == 13 || random == 9 || random == 15)) { // si random est égal à 7 ou si random est égal à 13 on insert un bloc
                 $("#map").append("<img src='../img/bloc.png' class='blocClass' id='bloc'>");
                 tabPosition.push(1); // id du bloc
-            */} else { // pour tout autre valeur de random on insert systématiquement une case vide
+            } else { // pour tout autre valeur de random on insert systématiquement une case vide
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 tabPosition.push(0); // id de la case vide
             }
