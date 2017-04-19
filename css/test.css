@@ -1,0 +1,83 @@
+h1 {
+    text-align: center;
+    width: auto;
+    height: 200px;
+    font-size: 3em;
+    vertical-align: center;
+    z-index: 3;
+    color: white;
+}
+
+body {
+    background-size: cover;
+    /*étendu sur tout le background*/
+    background-color: rgb(29, 29, 29);
+}
+
+#map {
+    width: 1000px;
+    /*largeur*/
+    border: 1px black solid;
+    /*bordure*/
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    /*priorité d' affichage*/
+    opacity: 1;
+}
+
+#perso1 {
+    position: absolute;
+    /* pouvoir déplacer les personnages */
+    z-index: 4;
+}
+
+#perso2 {
+    position: absolute;
+    /* pouvoir déplacer les personnages */
+    z-index: 4;
+}
+
+#joueur1 {
+  float: left;
+  z-index: 4;
+  width: 15%;
+  height: 500px;
+  align-content: center;
+  vertical-align: middle;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#joueur2 {
+  float: right;
+  z-index: 4;
+  width: 15%;
+  height: 500px;
+  align-content: center;
+  vertical-align: middle;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#recap1 #recap2 {
+    font-size: 3em;
+    color: black;
+    float: left;
+    z-index: 4;
+}
+
+#rapport1 #rapport2 {
+    font-size: 3em;
+    color: black;
+    float: left;
+    z-index: 4;
+}
+
+#état1 #état2 {
+    font-size: 3em;
+    color: black;
+    float: left;
+    z-index: 4;
+}
+
