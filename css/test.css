@@ -49,7 +49,7 @@ body {
     z-index: 4;
 }
 
-#joueur1 {
+.joueurClass {
     z-index: 4;
     max-width: 15%;
     height: 500px;
@@ -60,20 +60,14 @@ body {
     border: 1px black solid;
     padding: 50px;
     position: fixed;
+}
+
+#joueur1 {
     bottom: 0;
     left: 0;
 }
 
 #joueur2 {
-    z-index: 4;
-    max-width: 15%;
-    height: 500px;
-    align-content: center;
-    vertical-align: middle;
-    background-color: white;
-    border: 1px black solid;
-    padding: 50px;
-    position: fixed;
     bottom: 0;
     right: 0;
 }
@@ -98,3 +92,4 @@ body {
     float: left;
     z-index: 4;
 }
+
