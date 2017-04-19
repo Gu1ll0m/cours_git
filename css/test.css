@@ -8,10 +8,21 @@ h1 {
     color: white;
 }
 
+header {
+    background-color: rgb(36, 41, 46);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
 body {
     background-size: cover;
     /*étendu sur tout le background*/
-    background-color: rgb(36, 41, 46);
+    background-color: rgb(63, 67, 72);
+    /*rgb(36, 41, 46);*/
 }
 
 #map {
@@ -39,45 +50,51 @@ body {
 }
 
 #joueur1 {
-  float: left;
-  z-index: 4;
-  width: 15%;
-  height: 500px;
-  align-content: center;
-  vertical-align: middle;
-  background-color: white;
-  border: 1px black solid;
+    z-index: 4;
+    max-width: 15%;
+    height: 500px;
+    margin: 10px;
+    align-content: center;
+    vertical-align: middle;
+    background-color: white;
+    border: 1px black solid;
+    padding: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 #joueur2 {
-  float: right;
-  z-index: 4;
-  width: 15%;
-  height: 500px;
-  align-content: center;
-  vertical-align: middle;
-  background-color: white;
-  border: 1px black solid;
+    z-index: 4;
+    max-width: 15%;
+    height: 500px;
+    align-content: center;
+    vertical-align: middle;
+    background-color: white;
+    border: 1px black solid;
+    padding: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
-#recap1 #recap2 {
-    font-size: 3em;
+.recapClass {
+    font-size: 2em;
     color: black;
     float: left;
     z-index: 4;
 }
 
-#rapport1 #rapport2 {
-    font-size: 3em;
+.rapportClass {
+    font-size: 2em;
     color: black;
     float: left;
     z-index: 4;
 }
 
-#état1 #état2 {
-    font-size: 3em;
+.étatClass {
+    font-size: 2em;
     color: black;
     float: left;
     z-index: 4;
 }
-
