@@ -26,12 +26,12 @@ function generate_map() {
             var random = generate_random(20); // fonction generate_random avec en paramètre 20 pour que le rendu soit plus aléatoire
             //TODO : gestion cas particulier si jamais random == 1
             if (random == 1 && perso1_sur_la_map == false) { // si random est égal à 1 et que le perso1 n'est pas encore sur la map
-                $("#map").append("<img src='../img/perso1.png' class='persoClass' id='perso1' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
+                $("#map").append("<img src='../img/perso1_alien.png' class='persoClass' id='perso1' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso1_sur_la_map = true;
                 tabPosition.push(3); // id du perso1
             } else if (random == 12 && perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
-                $("#map").append("<img src='../img/perso2.png' class='persoClass' id='perso2' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
+                $("#map").append("<img src='../img/perso2_predator.png' class='persoClass' id='perso2' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>");
                 $("#map").append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
                 perso2_sur_la_map = true;
                 tabPosition.push(4); // id du perso2
@@ -79,23 +79,23 @@ function deplace() {
 
 
         function bloc() {
-            $('#état').html('Vous faîtes face à un bloc').fadeIn('slow').delay(2000).fadeOut('slow'); // ajoute le message dans un span et le fait disparaitre au bout de 2 secondes
+            $('#état1').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow'); // dans un span et disparait au bout de 1 secondes
         }
 
         function combat() { /* ici fonction combat()*/
-            $('#état').html('FIGHT').fadeIn('slow').delay(2000).fadeOut('slow');
+            $('#état1').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
         }
 
         function arme() { /* ici la fonction equip()*/
-            $('#état').html('Vous vous équipez d une arme').fadeIn('slow').delay(2000).fadeOut('slow');
+            $('#état1').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
         }
 
         function bord() {
-            $('#état').html('Vous faîtes face à un bord').fadeIn('slow').delay(2000).fadeOut('slow');
+            $('#état1').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
         }
 
         if (e.which == 37) { // Vers la gauche
-            $('#rapport').html('Bouton pressé : flêche gauche');
+            $('#rapport1').html("<img src='../img/pad_gauche.png' class='padClass' id='padGauche'>").fadeIn('slow').delay(1000).fadeOut('slow');
             colonne--; // on se dirige vers la colonne précedante
             index = ligne * longueur + colonne; // l'index de la case suivant
             if (tabPosition[index] == 1) { // bloc
@@ -109,14 +109,15 @@ function deplace() {
                 if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
                     combat();
                 }
-                if ((tabPosition == 0) || (tabPosition == 10) || (tabPosition == 20) || (tabPosition == 30) || (tabPosition == 40) || (tabPosition == 50) || (tabPosition == 60) || (tabPosition == 70) || (tabPosition == 80) || (tabPosition == 90)) {
+                if ((tabPosition == 0) || (tabPosition == 10) || (tabPosition == 20) || (tabPosition == 30) || (tabPosition == 40) ||
+                    (tabPosition == 50) || (tabPosition == 60) || (tabPosition == 70) || (tabPosition == 80) || (tabPosition == 90)) {
                     bord();
                 }
             }
         }
 
         if (e.which == 38) { // Vers le haut
-            $('#rapport').html('Bouton pressé : flêche haut');
+            $('#rapport1').html("<img src='../img/pad_haut.png' class='padClass' id='padHaut'>").fadeIn('slow').delay(1000).fadeOut('slow');
             ligne--; // on se dirige vers la ligne précédante
             index = ligne * longueur + colonne; // l'index de la case suivant
             if (tabPosition[index] == 1) {
@@ -134,7 +135,7 @@ function deplace() {
         }
 
         if (e.which == 39) { // Vers la droite
-            $('#rapport').html('Bouton pressé : flêche droite');
+            $('#rapport1').html("<img src='../img/pad_droite.png' class='padClass' id='padDroite'>").fadeIn('slow').delay(1000).fadeOut('slow');
             colonne++; // on se dirige vers la colonne suivant
             index = ligne * longueur + colonne; // l'index de la case suivant
             if (tabPosition[index] == 1) {
@@ -148,14 +149,15 @@ function deplace() {
                 if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
                     combat(); // ici fonction combat()
                 }
-                if ((tabPosition == 9) || (tabPosition == 19) || (tabPosition == 29) || (tabPosition == 39) || (tabPosition == 49) || (tabPosition == 59) || (tabPosition == 69) || (tabPosition == 79) || (tabPosition == 89) || (tabPosition == 99)) {
+                if ((tabPosition == 9) || (tabPosition == 19) || (tabPosition == 29) || (tabPosition == 39) || (tabPosition == 49) ||
+                    (tabPosition == 59) || (tabPosition == 69) || (tabPosition == 79) || (tabPosition == 89) || (tabPosition == 99)) {
                     bord();
                 }
             }
         }
 
         if (e.which == 40) { // Vers le bas
-            $('#rapport').html('Bouton pressé : flêche bas');
+            $('#rapport1').html("<img src='../img/pad_bas.png' class='padClass' id='Bas'>").fadeIn('slow').delay(1000).fadeOut('slow');
             ligne++; // on se dirige vers la ligne suivante
             index = ligne * longueur + colonne; // l'index de la case suivant
             if (tabPosition[index] == 1) {
@@ -175,4 +177,3 @@ function deplace() {
 }
 
 deplace();
-
