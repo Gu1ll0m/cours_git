@@ -4,13 +4,40 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/test.css" />
     <title>FPS au tour par tour</title>
 </head>
 
 <body>
 
-    <div id="map"></div>
+    <div id="contenu">
+
+        <header>
+            <h1>Jeu en tour par tour </br> Alien vs Predator</h2>
+        </header>
+
+        <div id="joueur1">
+          <p>
+          <img src="../img/perso1_alien_grand.png"></img>
+        </p>
+          <span id="recap1">"Bouton pressé : "</span>
+          <span id="rapport1"></span>
+          <span id="état1"></span>
+      </div>
+
+      <div id="joueur2">
+        <p>
+        <img src="../img/perso2_predator_grand.png"></img>
+      </p>
+        <span id="recap2">"Bouton pressé : "</span>
+        <span id="rapport2"></span>
+        <span id="état2"></span>
+    </div>
+
+      <div id="map"></div>
+
+    </div>
+
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="../js/test.js"></script>
