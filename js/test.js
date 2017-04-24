@@ -109,84 +109,84 @@ function generate_game() {
 
     $(document).keydown(function(e) { // la fonction se déclenche dès que l'utilisateur prèse une touche
 
-        var ligne = parseInt(perso1.css('top')) / p; // position en x
-        var colonne = parseInt(perso1.css('left')) / p; // position en Y
-        var longueur = 10; //10 cases par lignes
-        var oldIndex = ligne * colonne + longueur; // position actuelle du perso avant déplacement
-        var persoActuel;
+      var ligne = parseInt(perso1.css('top')) / p; // position en x
+      var colonne = parseInt(perso1.css('left')) / p; // position en Y
+      var longueur = 10; //10 cases par lignes
+      var oldIndex = ligne * colonne + longueur; // position actuelle du perso avant déplacement
+      var persoActuel;
 
 
-        function deplacement_bloc() {
-          if (persoActuel == perso1) {
+      function deplacement_bloc() {
+        if (persoActuel == perso1) {
           $('#etat1').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow'); // dans un span et disparait au bout de 1 secondes
-          }
-          if (persoActuel == perso2) {
-            $('#etat2').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow');
-          }
         }
+        if (persoActuel == perso2) {
+          $('#etat2').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow');
+        }
+      }
 
-        function deplacement_combat() { /* ici fonction deplacement_combat()*/
-          if (persoActuel == perso1) {
+      function deplacement_combat() { /* ici fonction deplacement_combat()*/
+        if (persoActuel == perso1) {
           $('#etat1').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
         }
-          if (persoActuel == perso2) {
-            $('#etat2').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
-          }
+        if (persoActuel == perso2) {
+          $('#etat2').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
         }
+      }
 
-        function deplacement_arme() { /* ici la fonction equip()*/
-          if (persoActuel == perso1) {
+      function deplacement_arme() { /* ici la fonction equip()*/
+        if (persoActuel == perso1) {
           $('#etat1').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
-          }
-          if (persoActuel == perso2) {
-            $('#etat2').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
-          }
         }
+        if (persoActuel == perso2) {
+          $('#etat2').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
+        }
+      }
 
-        function deplacement_bord() {
-          if (persoActuel == perso1) {
+      function deplacement_bord() {
+        if (persoActuel == perso1) {
           $('#etat1').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
         }
-          if (persoActuel == perso2) {
-            $('#etat2').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
-          }
+        if (persoActuel == perso2) {
+          $('#etat2').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
         }
+      }
 
-        function touche_gauche() {
-          $('#rapport1').html("<img src='../img/pad_gauche.png' class='padClass' id='padGauche'>").fadeIn('slow').delay(1000).fadeOut('slow');
-          console.log("vers la gauche");
-          colonne--; // on se dirige vers la colonne précedante
-        }
+      function touche_gauche() {
+        $('#rapport1').html("<img src='../img/pad_gauche.png' class='padClass' id='padGauche'>").fadeIn('slow').delay(1000).fadeOut('slow');
+        console.log("vers la gauche");
+        colonne--; // on se dirige vers la colonne précedante
+      }
 
-        function touche_haut() {
-          $('#rapport1').html("<img src='../img/pad_haut.png' class='padClass' id='padHaut'>").fadeIn('slow').delay(1000).fadeOut('slow');
-          console.log("vers le haut");
-          ligne--; // on se dirige vers la ligne précédante
-        }
+      function touche_haut() {
+        $('#rapport1').html("<img src='../img/pad_haut.png' class='padClass' id='padHaut'>").fadeIn('slow').delay(1000).fadeOut('slow');
+        console.log("vers le haut");
+        ligne--; // on se dirige vers la ligne précédante
+      }
 
-        function touche_droite() {
-          $('#rapport1').html("<img src='../img/pad_droite.png' class='padClass' id='padDroite'>").fadeIn('slow').delay(1000).fadeOut('slow');
-          console.log("vers la droite");
-          colonne++; // on se dirige vers la colonne suivant
-        }
+      function touche_droite() {
+        $('#rapport1').html("<img src='../img/pad_droite.png' class='padClass' id='padDroite'>").fadeIn('slow').delay(1000).fadeOut('slow');
+        console.log("vers la droite");
+        colonne++; // on se dirige vers la colonne suivant
+      }
 
-        function touche_bas() {
-          $('#rapport1').html("<img src='../img/pad_bas.png' class='padClass' id='Bas'>").fadeIn('slow').delay(1000).fadeOut('slow');
-          console.log("vers le bas");
-          ligne++; // on se dirige vers la ligne suivante
-        }
+      function touche_bas() {
+        $('#rapport1').html("<img src='../img/pad_bas.png' class='padClass' id='Bas'>").fadeIn('slow').delay(1000).fadeOut('slow');
+        console.log("vers le bas");
+        ligne++; // on se dirige vers la ligne suivante
+      }
 
-        if (e.which == 37) { // Vers la gauche
-          touche_gauche();
-          if (colonne >= 0) { // si nombreCaseX
-            var index = ligne * longueur + colonne; // l'index de la case suivant
-            if (tabPosition[index] == 1) { // bloc
-              deplacement_bloc();
-            } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-              if (persoActuel == perso1) {
+      if (e.which == 37) { // Vers la gauche
+        touche_gauche();
+        if (colonne >= 0) { // si nombreCaseX
+          var index = ligne * longueur + colonne; // l'index de la case suivant
+          if (tabPosition[index] == 1) { // bloc
+            deplacement_bloc();
+          } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
+            if (persoActuel == perso1) {
               perso1.css('left', parseInt(perso1.css('left')) - p); // donc on se déplace
-              } else {
-                perso2.css('left', parseInt(perso2.css('left')) - p);
+            } else {
+              perso2.css('left', parseInt(perso2.css('left')) - p);
             }
             console.log("après déplacement index " + " " + index);;
             if (tabPosition[index] == 2) { // arme
@@ -214,92 +214,92 @@ function generate_game() {
           deplacement_bloc();
         } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
           if (persoActuel == perso1) {
-          perso1.css('top', parseInt(perso1.css('top')) - p); // donc on se déplace
+            perso1.css('top', parseInt(perso1.css('top')) - p); // donc on se déplace
           } else {
             perso2.css('top', parseInt(perso2.css('top')) - p);
+          }
+          console.log("après déplacement index " + " " + index);
+          if (tabPosition[index] == 2) {
+            deplacement_arme();
+          }
+          if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+            deplacement_combat(); // ici fonction deplacement_combat()
+          }
+          tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
+          console.log("index de la case qui contient le perso" + " " + index);
+          tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
+          console.log("index de la case précédente" + " " + oldIndex);
+          compteur++;
+          checkCompteur();
         }
-        console.log("après déplacement index " + " " + index);
-        if (tabPosition[index] == 2) {
-          deplacement_arme();
-        }
-        if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-          deplacement_combat(); // ici fonction deplacement_combat()
-        }
-        tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-        console.log("index de la case qui contient le perso" + " " + index);
-        tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-        console.log("index de la case précédente" + " " + oldIndex);
-        compteur++;
-        checkCompteur();
       }
-    }
 
-    if (e.which == 39) { // Vers la droite
-      touche_droite();
-      if (colonne < 10) { // si nombreCaseX
+      if (e.which == 39) { // Vers la droite
+        touche_droite();
+        if (colonne < 10) { // si nombreCaseX
+          index = ligne * longueur + colonne; // l'index de la case suivant
+          if (tabPosition[index] == 1) {
+            deplacement_bloc();
+          } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
+            if (persoActuel == perso1) {
+              perso1.css('left', parseInt(perso1.css('left')) + p); // donc on se déplace
+            } else {
+              perso2.css('left', parseInt(perso2.css('left')) + p);
+            }
+            console.log("après déplacement index " + " " + index);
+            if (tabPosition[index] == 2) {
+              deplacement_arme(); // ici fonction equipe()
+            }
+            if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+              deplacement_combat(); // ici fonction deplacement_combat()
+            }
+            tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
+            console.log("index de la case qui contient le perso" + " " + index);
+            tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
+            console.log("index de la case précédente" + " " + oldIndex);
+            compteur++;
+            checkCompteur();
+          }
+        } else {
+          deplacement_bord();
+        }
+      }
+
+      if (e.which == 40) { // Vers le bas
+        touche_bas();
         index = ligne * longueur + colonne; // l'index de la case suivant
         if (tabPosition[index] == 1) {
           deplacement_bloc();
         } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
+          compteur++;
           if (persoActuel == perso1) {
-          perso1.css('left', parseInt(perso1.css('left')) + p); // donc on se déplace
+            perso1.css('top', parseInt(perso1.css('top')) + p); // donc on se déplace
           } else {
-            perso2.css('left', parseInt(perso2.css('left')) + p);
+            perso2.css('top', parseInt(perso2.css('top')) + p);
+          }
+          console.log("après déplacement index " + " " + index);
+          if (tabPosition[index] == 2) {
+            deplacement_arme(); // ici fonction equipe()
+          }
+          if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
+            deplacement_combat(); // ici fonction deplacement_combat()
+          }
+          tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
+          console.log("index de la case qui contient le perso" + " " + index);
+          tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
+          console.log("index de la case précédente" + " " + oldIndex);
+          compteur++;
+          checkCompteur();
         }
-        console.log("après déplacement index " + " " + index);
-        if (tabPosition[index] == 2) {
-          deplacement_arme(); // ici fonction equipe()
-        }
-        if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-          deplacement_combat(); // ici fonction deplacement_combat()
-        }
-        tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-        console.log("index de la case qui contient le perso" + " " + index);
-        tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-        console.log("index de la case précédente" + " " + oldIndex);
-        compteur++;
-        checkCompteur();
       }
-    } else {
-      deplacement_bord();
-    }
+
+    })
+
   }
 
-  if (e.which == 40) { // Vers le bas
-    touche_bas();
-    index = ligne * longueur + colonne; // l'index de la case suivant
-    if (tabPosition[index] == 1) {
-      deplacement_bloc();
-    } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-      compteur++;
-      if (persoActuel == perso1) {
-      perso1.css('top', parseInt(perso1.css('top')) + p); // donc on se déplace
-      } else {
-        perso2.css('top', parseInt(perso2.css('top')) + p);
-    }
-    console.log("après déplacement index " + " " + index);
-    if (tabPosition[index] == 2) {
-      deplacement_arme(); // ici fonction equipe()
-    }
-    if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-      deplacement_combat(); // ici fonction deplacement_combat()
-    }
-    tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-    console.log("index de la case qui contient le perso" + " " + index);
-    tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-    console.log("index de la case précédente" + " " + oldIndex);
-    compteur++;
-    checkCompteur();
-  }
-}
+  deplace();
 
-})
-
-}
-
-deplace();
-
-//================================================================================================================================================//
+  //================================================================================================================================================//
 
 }
 
