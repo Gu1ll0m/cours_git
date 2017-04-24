@@ -1,4 +1,4 @@
-var perso = {
+var personnage = {
     // Initialise le personnage
     init: function(nom, sante) {
         this.nom = nom;
@@ -12,11 +12,11 @@ var perso = {
     }
 };
 
-var perso1 = Object.create(Personnage);
-perso1.init("Jean", 100);
+var perso1 = Object.create(personnage);
+perso1.init("Alien", 100);
 
-var perso2 = Object.create(Personnage);
-perso2.init("Luc", 100);
+var perso2 = Object.create(personnage);
+perso2.init("Predator", 100);
 
 console.log(perso1.decrire());
 console.log(perso2.decrire());
@@ -38,6 +38,3 @@ function attaquer(cible) {
         console.log(this.nom + " ne peut pas attaquer : il est mort...");
     }
 };
-
-
-// stocker l' état dans une variable
