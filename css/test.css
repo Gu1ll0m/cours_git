@@ -1,95 +1,157 @@
-h1 {
-    text-align: center;
-    width: auto;
-    height: 200px;
-    font-size: 3em;
-    vertical-align: center;
-    z-index: 3;
-    color: white;
+body {
+  background-size: cover;
+  background-color: rgb(36, 41, 46);
+}
+
+#contenu {
+  background-size: cover;
+  background-color: rgb(63, 67, 72);
 }
 
 header {
-    background-color: rgb(36, 41, 46);
-    width: 100%;
-    height: auto;
-    text-align: center;
-    vertical-align: middle;
-    margin-top: 0px;
-    margin-left: 0px;
+  background-color: rgb(36, 41, 46);
+  width: 100%;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
 }
 
-body {
-    background-size: cover;
-    /*étendu sur tout le background*/
-    background-color: rgb(63, 67, 72);
-    /*rgb(36, 41, 46);*/
+h1 {
+  text-align: center;
+  width: auto;
+  height: auto;
+  font-size: 1.2em;
+  vertical-align: middle;
+  z-index: 5;
+  color: white;
 }
 
 #map {
-    width: 1000px;
-    /*largeur*/
-    border: 1px black solid;
-    /*bordure*/
-    margin: auto;
-    position: relative;
-    z-index: 3;
-    /*priorité d' affichage*/
-    opacity: 1;
+  width: 500px;
+  max-width: 60%;
+  border: 1px black solid;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+}
+
+.persoClass {
+  position: absolute;
+  /*pouvoir déplacer les personnages */
+}
+
+#bloc {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/bloc.png") fixed;
+}
+
+#casevide {
+  position: static;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/casevide.png") fixed;
+}
+
+#arme1 {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/arme1.png") fixed;
+}
+
+#arme2 {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/arme2.png") fixed;
+}
+
+#arme3 {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/arme3.png") fixed;
+}
+
+#arme4 {
+  position: relative;
+  display: inline-block;
+  margin-top: auto;
+  background: url("../img/arme4.png") fixed;
 }
 
 #perso1 {
-    position: absolute;
-    /* pouvoir déplacer les personnages */
-    z-index: 4;
+  z-index: 4;
+  background: url("../img/perso1_alien.jpg") fixed;
 }
 
 #perso2 {
-    position: absolute;
-    /* pouvoir déplacer les personnages */
-    z-index: 4;
+  z-index: 4;
+  background: url("../img/perso2_predator.png") fixed;
 }
 
 .joueurClass {
-    z-index: 4;
-    max-width: 15%;
-    height: 500px;
-    margin: 10px;
-    align-content: center;
-    vertical-align: middle;
-    background-color: white;
-    border: 1px black solid;
-    padding: 50px;
-    position: fixed;
+  z-index: 4;
+  max-width: 15%;
+  max-height: 60%;
+  margin: 2px;
+  align-content: center;
+  vertical-align: middle;
+  background-color: white;
+  border: 1px black solid;
+  padding: 50px;
+  position: fixed;
 }
 
 #joueur1 {
-    bottom: 0;
-    left: 0;
+  bottom: 5px;
+  left: 5px;
 }
 
 #joueur2 {
-    bottom: 0;
-    right: 0;
+  bottom: 5px;
+  right: 5px;
 }
 
 .recapClass {
-    font-size: 2em;
-    color: black;
-    float: left;
-    z-index: 4;
+  font-size: 0.8em;
+  color: black;
+  float: left;
+  z-index: 4;
+  position: relative;
 }
 
 .rapportClass {
-    font-size: 2em;
-    color: black;
-    float: left;
-    z-index: 4;
+  font-size: 0.8em;
+  color: black;
+  float: left;
+  z-index: 4;
+  position: relative;
 }
 
 .etatClass {
-    font-size: 2em;
-    color: black;
-    float: left;
-    z-index: 4;
+  font-size: 0.8em;
+  color: black;
+  float: left;
+  z-index: 4;
+  position: relative;
 }
 
+.recapArmeClass {
+  font-size: 0.8em;
+  color: black;
+  float: left;
+  z-index: 4;
+  position: relative;
+}
+
+p {
+  font-size: 0.8em;
+  color: black;
+  float: left;
+  z-index: 4;
+  position: relative;
+}
