@@ -31,9 +31,9 @@ function generate_game() {
         var random = generate_random(20); // fonction generate_random avec en paramètre 20 pour que le rendu soit plus aléatoire
         //TODO : gestion cas particulier si jamais random == 1
         if (random == 1 && perso1_sur_la_map == false) { // si random est égal à 1 et que le perso1 n'est pas encore sur la map
-          $map.append("<img src='../img/perso1_alien.png' class='persoClass' id='perso1' style='left:" + p * j + "px; top:" + p * i + "px'>");
+          $map.append("<img src='../img/perso1_alien.png' class='persoClass' id='perso1' style='left:" + p * j + "px; top:" + p * i + "px'>"); // append() insère du contenu à la fin de la sélection
           $map.append("<img src='../img/casevide.png' class='casevideClass' id='casevide'>");
-          perso1 = $("#perso1")
+          perso1 = $("#perso1");
           perso1_sur_la_map = true;
           tabPosition.push(3); // id du $("#perso1")
         } else if (random == 12 && perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
@@ -75,6 +75,7 @@ function generate_game() {
   //================================================================================================================================================//
 
   var compteur = 0;
+  var perso1, perso2; // déclare variables globales
   var persoActuel;
 
   // fonction pour choisir le joueur qui commence la partie
@@ -103,53 +104,38 @@ function generate_game() {
   random_joueur();
 
   //================================================================================================================================================//
-
   //fonction qui permet de gérer les déplacements du personnage
   function deplace() {
 
     $(document).keydown(function(e) { // la fonction se déclenche dès que l'utilisateur prèse une touche
 
+      var p = 50; //largeur en pixels d'une case
       var ligne = parseInt(perso1.css('top')) / p; // position en x
       var colonne = parseInt(perso1.css('left')) / p; // position en Y
       var longueur = 10; //10 cases par lignes
       var oldIndex = ligne * colonne + longueur; // position actuelle du perso avant déplacement
       var persoActuel;
+      var perso1, perso2; // déclare variables globales
 
 
       function deplacement_bloc() {
-        if (persoActuel == perso1) {
-          $('#etat1').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow'); // dans un span et disparait au bout de 1 secondes
-        }
-        if (persoActuel == perso2) {
-          $('#etat2').html('Vous faîtes face à un bloc').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
+        if (persoActuel == perso1) {$('#etat1').html('Vous faîtes face à un bloc').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
+        if (persoActuel == perso2) {$('#etat2').html('Vous faîtes face à un bloc').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
       }
 
-      function deplacement_combat() { /* ici fonction deplacement_combat()*/
-        if (persoActuel == perso1) {
-          $('#etat1').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
-        if (persoActuel == perso2) {
-          $('#etat2').html('FIGHT').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
+      function deplacement_combat() {
+        if (persoActuel == perso1) {$('#etat1').html('FIGHT').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
+        if (persoActuel == perso2) {$('#etat2').html('FIGHT').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
       }
 
-      function deplacement_arme() { /* ici la fonction equip()*/
-        if (persoActuel == perso1) {
-          $('#etat1').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
-        if (persoActuel == perso2) {
-          $('#etat2').html('Vous vous équipez d une arme').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
+      function deplacement_arme() {
+        if (persoActuel == perso1) {$('#etat1').html('Vous vous équipez d une arme').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
+        if (persoActuel == perso2) {$('#etat2').html('Vous vous équipez d une arme').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
       }
 
       function deplacement_bord() {
-        if (persoActuel == perso1) {
-          $('#etat1').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
-        if (persoActuel == perso2) {
-          $('#etat2').html('Vous faîtes face à un bord').fadeIn('slow').delay(1000).fadeOut('slow');
-        }
+        if (persoActuel == perso1) {$('#etat1').html('Vous faîtes face à un bord').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
+        if (persoActuel == perso2) {$('#etat2').html('Vous faîtes face à un bord').css('color', 'red').fadeIn('slow').delay(1000).fadeOut('slow');}
       }
 
       function touche_gauche() {
@@ -176,114 +162,40 @@ function generate_game() {
         ligne++; // on se dirige vers la ligne suivante
       }
 
-      if (e.which == 37) { // Vers la gauche
-        touche_gauche();
-        if (colonne >= 0) { // si nombreCaseX
-          var index = ligne * longueur + colonne; // l'index de la case suivant
-          if (tabPosition[index] == 1) { // bloc
-            deplacement_bloc();
-          } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-            if (persoActuel == perso1) {
-              perso1.css('left', parseInt(perso1.css('left')) - p); // donc on se déplace
-            } else {
-              perso2.css('left', parseInt(perso2.css('left')) - p);
-            }
-            console.log("après déplacement index " + " " + index);;
-            if (tabPosition[index] == 2) { // arme
-              deplacement_arme();
-            }
-            if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-              deplacement_combat();
-            }
-            tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-            console.log("index de la case qui contient le perso" + " " + index);
-            tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-            console.log("index de la case précédente" + " " + oldIndex);
-            compteur++;
-            checkCompteur();
-          }
-        } else {
-          deplacement_bord();
-        }
-      }
 
-      if (e.which == 38) { // Vers le haut
-        touche_haut();
-        index = ligne * longueur + colonne; // l'index de la case suivant
-        if (tabPosition[index] == 1) {
-          deplacement_bloc();
-        } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-          if (persoActuel == perso1) {
-            perso1.css('top', parseInt(perso1.css('top')) - p); // donc on se déplace
-          } else {
-            perso2.css('top', parseInt(perso2.css('top')) - p);
-          }
-          console.log("après déplacement index " + " " + index);
-          if (tabPosition[index] == 2) {
-            deplacement_arme();
-          }
-          if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-            deplacement_combat(); // ici fonction deplacement_combat()
-          }
-          tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-          console.log("index de la case qui contient le perso" + " " + index);
-          tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-          console.log("index de la case précédente" + " " + oldIndex);
+      function mouvement() {
+        if (e.which == 37) {touche_gauche();}
+        if (e.which == 38) {touche_haut();}
+        if (e.which == 39) {touche_droite();}
+        if (e.which == 40) {touche_bas();}
+        if (touche_gauche() && (colonne >= 0)) {deplacement_bord();}
+        if (touche_droite() && (colonne < 10)) {deplacement_bord();}
+        var index = ligne * longueur + colonne; // l'index de la case suivant
+        if (tabPosition[index] == 1) {deplacement_bloc();}
+          else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
           compteur++;
-          checkCompteur();
-        }
-      }
-
-      if (e.which == 39) { // Vers la droite
-        touche_droite();
-        if (colonne < 10) { // si nombreCaseX
-          index = ligne * longueur + colonne; // l'index de la case suivant
-          if (tabPosition[index] == 1) {
-            deplacement_bloc();
-          } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-            if (persoActuel == perso1) {
-              perso1.css('left', parseInt(perso1.css('left')) + p); // donc on se déplace
-            } else {
-              perso2.css('left', parseInt(perso2.css('left')) + p);
-            }
+          if (touche_gauche()) {
+            if (persoActuel == perso1) {perso1.css('left', parseInt(perso1.css('left')) - p);}
+            else {perso2.css('left', parseInt(perso2.css('left')) - p);}
             console.log("après déplacement index " + " " + index);
-            if (tabPosition[index] == 2) {
-              deplacement_arme(); // ici fonction equipe()
-            }
-            if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-              deplacement_combat(); // ici fonction deplacement_combat()
-            }
-            tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
-            console.log("index de la case qui contient le perso" + " " + index);
-            tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
-            console.log("index de la case précédente" + " " + oldIndex);
-            compteur++;
-            checkCompteur();
           }
-        } else {
-          deplacement_bord();
-        }
-      }
-
-      if (e.which == 40) { // Vers le bas
-        touche_bas();
-        index = ligne * longueur + colonne; // l'index de la case suivant
-        if (tabPosition[index] == 1) {
-          deplacement_bloc();
-        } else if ((tabPosition[index] == 0) || (tabPosition[index] == 2) || (tabPosition[index] == 4)) {
-          compteur++;
-          if (persoActuel == perso1) {
-            perso1.css('top', parseInt(perso1.css('top')) + p); // donc on se déplace
-          } else {
-            perso2.css('top', parseInt(perso2.css('top')) + p);
+          if (touche_haut()) {
+            if (persoActuel == perso1) {perso1.css('top', parseInt(perso1.css('top')) - p);}
+            else {perso2.css('top', parseInt(perso2.css('top')) - p);}
+            console.log("après déplacement index " + " " + index);
           }
-          console.log("après déplacement index " + " " + index);
-          if (tabPosition[index] == 2) {
-            deplacement_arme(); // ici fonction equipe()
+          if (touche_droite()) {
+            if (persoActuel == perso1) {perso1.css('left', parseInt(perso1.css('left')) + p);}
+            else {perso2.css('left', parseInt(perso2.css('left')) + p);}
+            console.log("après déplacement index " + " " + index);
           }
-          if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) { // personnage
-            deplacement_combat(); // ici fonction deplacement_combat()
+          if (touche_bas()) {
+            if (persoActuel == perso1) {perso1.css('top', parseInt(perso1.css('top')) + p);}
+            else {perso2.css('top', parseInt(perso2.css('top')) + p);}
+            console.log("après déplacement index " + " " + index);
           }
+          if (tabPosition[index] == 2) {deplacement_arme();}
+          if ((tabPosition[index] == 3) || (tabPosition[index] == 4)) {deplacement_combat();}
           tabPosition[index] = 3; // maj index case suivante (contient le $("#perso1"))
           console.log("index de la case qui contient le perso" + " " + index);
           tabPosition[oldIndex] = 0; // maj index case précédente (case vide après déplacement)
@@ -292,15 +204,92 @@ function generate_game() {
           checkCompteur();
         }
       }
-
     })
-
   }
 
   deplace();
 
   //================================================================================================================================================//
 
+    // fonction de création des personnages
+
+    var personnage = {
+      // Initialise le personnage
+      init: function(nom, sante) {
+        this.nom = nom;
+        this.sante = sante;
+      },
+
+      // Renvoie la description du personnage
+      decrire: function() {
+        var description = this.nom + " a " + this.sante + " points de vie";
+        return description;
+      }
+    };
+
+    var perso1 = Object.create(personnage);
+    perso1.init("Alien", 100);
+
+    var perso2 = Object.create(personnage);
+    perso2.init("Predator", 100);
+
+    console.log(perso1.decrire());
+    $('#recap1').html(perso1.decrire).fadeIn('slow').delay(1000).fadeOut('slow');
+    console.log(perso2.decrire());
+    $('#recap2').html(perso2.decrire).fadeIn('slow').delay(1000).fadeOut('slow');
+
+
+    // attaque un personnage cible
+    function attaquer(cible) {
+      if (this.sante > 0) {
+        var degats = this.force;
+        console.log(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
+        cible.sante = cible.sante - degats;
+        if (cible.sante > 0) {
+          console.log(cible.nom + " a encore " + cible.sante + " points de vie");
+        } else {
+          cible.sante = 0;
+          console.log(cible.nom + " est mort !");
+        }
+      } else {
+        console.log(this.nom + " ne peut pas attaquer : il est mort...");
+      }
+    };
+
+    //================================================================================================================================================//
+
+    var arme = {
+      // Initialise les armes
+      init: function(nom, degat, ) {
+        this.nom = nom;
+        this.degat = degat;
+      },
+
+      // Renvoie la description de l'arme
+      decrire: function() {
+        var description = this.nom + " fait " + this.degat + " points de dégâts";
+        return description;
+      }
+    };
+
+    var arme1 = Object.create(arme);
+    arme1.init("lanceur de bisoux intergalactique", 10);
+
+    var arme2 = Object.create(arme);
+    arme2.init("lanceur de cailloux intergalactique", 25);
+
+    var arme3 = Object.create(arme);
+    arme3.init("patator intergalactique", 50);
+
+    var arme4 = Object.create(arme);
+    arme4.init("headshotter intergalactique", 100);
+
+    console.log(arme1.decrire());
+    console.log(arme2.decrire());
+    console.log(arme3.decrire());
+    console.log(arme4.decrire());
+
+  //================================================================================================================================================//
 }
 
 generate_game();
