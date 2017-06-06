@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/style_v2.css" />
+  <title>FPS au tour par tour</title>
+</head>
+
+<body>
+
+
+
+  <header>
+    <h1>Jeu en tour par tour </br> Alien vs Predator</h1>
+  </header>
+
+  <div id="contenu">
+
+    <div id="joueur1" class="joueurClass">
+      <p><img src="../img/perso1_alien_grand.png"></img>
+      </p>
+      </br>
+      <p>"Santé : "</p><span id="recap1" class="recapClass"></span>
+      </br>
+      <p>"Dégats arme : "</p><span id="recapArme1" class="recapArmeClass"></span>
+      </br>
+      <p>"Situation: "</p><span id="etat1" class="etatClass"></span>
+      </br>
+      <p>"Bouton pressé : "</p><span id="rapport1" class="rapportClass"></span>
+    </div>
+
+    <div id="joueur2" class="joueurClass">
+      <p><img src="../img/perso2_predator_grand.png"></img>
+      </p>
+      </br>
+      <p>"Santé : "</p><span id="recap2" class="recapClass"></span>
+      </br>
+      <p>"Dégats arme : "</p><span id="recapArme2" class="recapArmeClass"></span>
+      </br>
+      <p>"Situation: "</p><span id="etat2" class="etatClass"></span>
+      </br>
+      <p>"Bouton pressé : "</p><span id="rapport2" class="rapportClass"></span>
+    </div>
+
+    <div id="map"></div>
+
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="../js/util_v2.js"></script>
+  <script src="../js/perso_v2.js"></script>
+  <script src="../js/arme_v2.js"></script>
+  <script src="../js/map_v2.js"></script>
+  <script src="../js/game_v2.js"></script>
+
+</body>
+
+</html>
