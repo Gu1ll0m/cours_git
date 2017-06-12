@@ -29,3 +29,24 @@ function getIndex( laLigne, laColonne, laLongueur ) {
     laLongueur = longueur;
     return ( laLigne * laLongueur + laColonne );
 }
+
+//================================================================================================================================================//
+//============================================================== Fonctions attaque ==============================================================//
+//================================================================================================================================================//
+
+// attaque un personnage cible
+function attaquer(cible) {
+  if (this.sante > 0) {
+    var degats = this.degat;
+    alert(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
+    cible.sante = cible.sante - degats;
+    if (cible.sante > 0) {
+      alert(cible.nom + " a encore " + cible.sante + " points de vie");
+    } else {
+      cible.sante = 0;
+      alert(cible.nom + " est mort !");
+    }
+  } else {
+    alert(this.nom + " ne peut pas attaquer : il est mort...");
+  }
+};
