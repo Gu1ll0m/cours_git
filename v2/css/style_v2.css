@@ -46,36 +46,6 @@ h1 {
     border: 1px black solid;
 }
 
-.joueurClass {
-  z-index: 4;
-  width: 10%;
-  height: 70%;
-  margin: 2px;
-  /*marge extérieure*/
-  padding: 20px;
-  /*marge intérieure*/
-  align-content: flex-start;
-  vertical-align: middle;
-  background-color: white;
-  border: 1px black solid;
-  position: fixed;
-}
-
-#joueur1 {
-  bottom: 5px;
-  left: 5px;
-}
-
-#joueur2 {
-  bottom: 5px;
-  right: 5px;
-}
-
-.bullet {
-    position: absolute;
-    width:30px;
-}
-
 .casevideClass {
     box-sizing: border-box;
     font-size: 0;
@@ -157,36 +127,4 @@ h1 {
     background-image: url('../img/arme4.png');
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-.recapClass {
-  font-size: 0.8em;
-  color: black;
-  float: left;
-  z-index: 4;
-  position: relative;
-}
-
-.rapportClass {
-  font-size: 0.8em;
-  color: black;
-  float: left;
-  z-index: 4;
-  position: relative;
-}
-
-.etatClass {
-  font-size: 0.8em;
-  color: black;
-  float: left;
-  z-index: 4;
-  position: relative;
-}
-
-.recapArmeClass {
-  font-size: 0.8em;
-  color: black;
-  float: left;
-  z-index: 4;
-  position: relative;
 }
