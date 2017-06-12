@@ -33,6 +33,6 @@ function Personnage (nom, sante, degat) {
   this.degat = degat;
 }
 
-// On crée des variables qui vont contenir une instance de l'objet Person :
+// On crée des variables qui vont contenir une instance de l'objet Personnage :
 var perso1 = new Personnage('Alien', 100, 10, []);
 var perso2 = new Personnage('Predator', 100, 10, []);
