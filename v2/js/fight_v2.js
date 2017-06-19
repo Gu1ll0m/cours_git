@@ -2,29 +2,23 @@
 //============================================================== Fonctions attaque ==============================================================//
 //================================================================================================================================================//
 
-// défini la cible en fonction de perso_actuel
-function cible() {
-  if (this.perso_actuel = this.perso1); {
-    this.cible = this.perso2;
-    return this.cible;
-  }
-  if (this.perso_actuel = this.perso2); {
-    this.cible = this.perso1;
-    return this.cible;
-  }
-  console.log(this.cible); // pour testS
-}
-
-
-
-
 // attaque un personnage cible
 // TODO : définir cible
 function fight(cible) {
 
   // déclaration des perso
   this.perso_actuel;
-  this.cible = cible();
+  this.cible = function() {
+    if (this.perso_actuel = this.perso1); {
+      this.cible = this.perso2;
+      return this.cible;
+    }
+    if (this.perso_actuel = this.perso2); {
+      this.cible = this.perso1;
+      return this.cible;
+    }
+    console.log(this.cible); // pour tests
+  }
 
   if (this.cible.sante > 0) {
     var degats = this.degat;
