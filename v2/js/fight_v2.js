@@ -4,7 +4,7 @@
 
 // attaque un personnage cible
 // TODO : définir cible
-function fight(cible) {
+function fight() {
 
   // déclaration des perso
   this.perso_actuel;
@@ -20,18 +20,41 @@ function fight(cible) {
     console.log(this.cible); // pour tests
   }
 
-  if (this.cible.sante > 0) {
-    var degats = this.degat;
-    alert(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
-    cible.sante = cible.sante - degats;
-    if (cible.sante > 0) {
-      alert(cible.nom + " a encore " + cible.sante + " points de vie");
-    } else {
-      cible.sante = 0;
-      alert(cible.nom + " est mort !");
+
+  var choix; // variable choix => 5 choix possibles, générer de 1 à 5 citations
+  while (choix !== "0") {
+    alert("Presser 1 pour attaquer");
+    alert("Presser 2 pour vous défendre");
+
+    var choix = prompt("Choisissez une option : ");
+
+    if (choix = 1) {attaquer();}
+    if (choix = 2) {defendre();}
+
+
+    function attaquer() {
+
+      if (this.cible.sante > 0) {
+        var degats = this.degat;
+        alert(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
+        cible.sante = cible.sante - degats;
+        if (cible.sante > 0) {
+          alert(cible.nom + " a encore " + cible.sante + " points de vie");
+        } else {
+          cible.sante = 0;
+          alert(cible.nom + " est mort !");
+        }
+      } else {
+        alert(this.nom + " ne peut pas attaquer : il est mort! La partie est terminé.");
+        alert("Pour rejouer appuyer sur F5");
+      }
+    };
+
+    function defendre() {
+      var def = (this.degat / 2);
+      return def;
     }
-  } else {
-    alert(this.nom + " ne peut pas attaquer : il est mort! La partie est terminé.");
-    alert("Pour rejouer appuyer sur F5");
-  }
-};
+    break;
+  };
+
+}
