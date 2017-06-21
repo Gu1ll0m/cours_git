@@ -14,7 +14,7 @@ function fight() {
       this.cible = this.perso2;
       return this.cible;
     }
-    else (this.perso_actuel = this.perso2); {
+    if (this.perso_actuel = this.perso2); {
       this.cible = this.perso1;
       return this.cible;
     }
