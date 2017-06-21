@@ -4,7 +4,7 @@
 
 function Perso() {
 
-  // Initialise les personnages avec les paramètres nom santé dégât et elm qui correspond à l' élément html.
+  // initialise les personnages avec les paramètres nom santé dégât et elm qui correspond à l' élément html.
   this.initPerso = function(nom, sante, degat, elm) {
     this.nom = nom;
     this.sante = sante;
@@ -12,7 +12,7 @@ function Perso() {
     this.elm = elm;
   }
 
-  // Renvoie la description des personnages
+  // renvoie la description des personnages
   this.decrirePerso = function() {
     var description = this.nom + "possède" + this.sante + "et fait " + this.degat + " points de dégâts avec son arme";
     return description;
@@ -21,58 +21,62 @@ function Perso() {
   // lance la fct mvt() si index n'est ni un bloc ni un perso
   this.deplace = function(old_index, index, mvt) {
     var self = this;
-    //console.log(self); // Pour test
-    if (tab_position[index] == 1) { // bloc
+    //console.log(self); // retourne la valeur de self
+    if (tab_position[index] == 1) { // 1 est l' id des blocs
       alert("Vous faîtes face à un bloc");
-    } else if ((tab_position[index] == 0) || (tab_position[index] == 2) || (tab_position[index] == 4)) {
+    } 
+    else if ((tab_position[index] == 0) || (tab_position[index] == 2) || (tab_position[index] == 3) || (tab_position[index] == 4)) { 
+    // si on est face à une case vide, une arme, Alien ou Predator
 
-
-      if (tab_position[index] == 2) { // arme
-        alert("Vous vous équipez d'une arme"); // ici fonction equipe()
+      if (tab_position[index] == 2) { // 2 est l' id des armes
+        alert("Vous vous équipez d'une arme"); 
         $carte.append("<div class='casevideClass' style='left:" + (index % 10) * 100 + "px; top:" + Math.floor(index / 10) * 100 + "px ;position: absolute;'></div>"); // on remplace la case de l'arme par une case vide
-        Arme();
+        Arme(); //TODO : la valeur des dégâts de l' arme doit remplacer la valeur des dégâts actuels du personnage
 
-        if (mvt == "gauche") { // déplacement
+        if (mvt == "gauche") { // déplacement à gauche
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
         }
 
-        else if (mvt == "droite") {
+        else if (mvt == "droite") { // déplacement à droite
           self.elm.css('left', parseInt(self.elm.css('left')) + 100);
         }
 
-        else if (mvt == "haut") {
+        else if (mvt == "haut") { // déplacement en haut
           self.elm.css('top', parseInt(self.elm.css('top')) - 100);
         }
 
-        else if (mvt == "bas") {
+        else if (mvt == "bas") { // déplacement en bas
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
-        console.log(this.degat); // pour test
+        console.log(this.degat); // vérifie que les dégâts sont bien équivalent à la valeur de l'arme équipé
       }
 
-      else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // personnage
-        alert("FIGHT"); // ici fonction fight() fight.js
-        fight();
+
+      else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // 3 et 4 sont les id des personnages
+        alert("FIGHT"); 
+        fight(); // ici fonction fight() fight.js
       }
 
-      else {
-        if (mvt == "gauche") {
+
+      else { // si on se dirige vers une case vide
+        if (mvt == "gauche") { // déplacement à gauche
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
         }
 
-        else if (mvt == "droite") {
+        else if (mvt == "droite") { // déplacement à droite
           self.elm.css('left', parseInt(self.elm.css('left')) + 100);
         }
 
-        else if (mvt == "haut") {
+        else if (mvt == "haut") { // déplacement en haut
           self.elm.css('top', parseInt(self.elm.css('top')) - 100);
         }
 
-        else if (mvt == "bas") {
+        else if (mvt == "bas") { // déplacement en bas
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
-        console.log(this.degat); // pour test
+        console.log(this.degat); // retourne la valeur des dégats.
       }
+
 
       if (self.nom == "Predator") tab_position[index] = 4; // maj index de la case suivante (contient maintenant le perso)
       if (self.nom == "Alien") tab_position[index] = 3; // maj index de la case suivante (contient maintenant le perso)
