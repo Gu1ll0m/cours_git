@@ -3,7 +3,6 @@
 //================================================================================================================================================//
 
 // attaque un personnage cible
-// TODO : définir cible
 function fight() {
 
   // déclaration des perso
@@ -15,7 +14,7 @@ function fight() {
       this.cible = this.perso2;
       return this.cible;
     }
-    if (this.perso_actuel = this.perso2); {
+    else (this.perso_actuel = this.perso2); {
       this.cible = this.perso1;
       return this.cible;
     }
@@ -23,10 +22,12 @@ function fight() {
   }
 
 
-  var choix; // variable choix => 5 choix possibles, générer de 1 à 5 citations
+  var choix; // variable choix => 2 choix possibles = attaquer ou défendre
   while (choix !== "0") {
     alert("Presser 1 pour attaquer");
     alert("Presser 2 pour vous défendre");
+
+    //TODO : insérer une boucle tant que this.cible.sante > o  
 
     var choix = prompt("Choisissez une option : ");
 
@@ -34,30 +35,33 @@ function fight() {
     if (choix = 2) {defendre();}
 
 
+    // déroulement de l' attaque
     function attaquer() {
 
-      if (this.cible.sante > 0) {
-        var degats = this.degat;
+      if (this.cible.sante > 0) { // la cible à des points de vie
+        var degats = this.perso_actuel.degat;
         alert(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
-        cible.sante = cible.sante - degats;
-        if (cible.sante > 0) {
-          alert(cible.nom + " a encore " + cible.sante + " points de vie");
+        this.cible.sante = this.cible.sante - degats; // les points de vie de la cible sont diminué de la valeur des dégâts de l'arme
+        if (this.cible.sante > 0) {
+          alert(this.cible.nom + " a encore " + this.cible.sante + " points de vie");
         }
         else {
-          cible.sante = 0;
+          this.cible.sante = 0; // si la cible n'a plus de point de vie
           alert(cible.nom + " est mort !");
         }
       }
-      else {
+      else { // permet de recommencer la partie
         alert(this.nom + " ne peut pas attaquer : il est mort! La partie est terminé.");
         alert("Pour rejouer appuyer sur F5");
       }
     };
 
+    // fonctionnement de la défense : division des dégats subies par 2
     function defendre() {
       var def = (this.degat / 2);
       return def;
     }
+
     break;
   };
 
