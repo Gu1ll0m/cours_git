@@ -34,27 +34,41 @@ function Perso() {
 
         if (mvt == "gauche") { // déplacement
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
-        } else if (mvt == "droite") {
+        }
+
+        else if (mvt == "droite") {
           self.elm.css('left', parseInt(self.elm.css('left')) + 100);
-        } else if (mvt == "haut") {
+        }
+
+        else if (mvt == "haut") {
           self.elm.css('top', parseInt(self.elm.css('top')) - 100);
-        } else if (mvt == "bas") {
+        }
+
+        else if (mvt == "bas") {
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
         console.log(this.degat); // pour test
+      }
 
-      } else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // personnage
+      else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // personnage
         alert("FIGHT"); // ici fonction fight() fight.js
         fight();
-        
-      } else {
+      }
+
+      else {
         if (mvt == "gauche") {
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
-        } else if (mvt == "droite") {
+        }
+
+        else if (mvt == "droite") {
           self.elm.css('left', parseInt(self.elm.css('left')) + 100);
-        } else if (mvt == "haut") {
+        }
+
+        else if (mvt == "haut") {
           self.elm.css('top', parseInt(self.elm.css('top')) - 100);
-        } else if (mvt == "bas") {
+        }
+
+        else if (mvt == "bas") {
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
         console.log(this.degat); // pour test
