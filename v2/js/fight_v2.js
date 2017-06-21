@@ -7,6 +7,8 @@
 function fight() {
 
   // déclaration des perso
+  this.perso1;
+  this.perso2;
   this.perso_actuel;
   this.cible = function() {
     if (this.perso_actuel = this.perso1); {
@@ -40,11 +42,13 @@ function fight() {
         cible.sante = cible.sante - degats;
         if (cible.sante > 0) {
           alert(cible.nom + " a encore " + cible.sante + " points de vie");
-        } else {
+        }
+        else {
           cible.sante = 0;
           alert(cible.nom + " est mort !");
         }
-      } else {
+      }
+      else {
         alert(this.nom + " ne peut pas attaquer : il est mort! La partie est terminé.");
         alert("Pour rejouer appuyer sur F5");
       }
