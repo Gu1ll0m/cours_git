@@ -11,6 +11,7 @@ function map(nombre_case_X, nombre_case_Y) {
   this.nb_arme_sur_la_map = 0;
   this.perso1 = '';
   this.perso2 = '';
+  //this.arsenal=[];
 
   this.getPerso1 = function() {return this.perso1;}
   this.getPerso2 = function() {return this.perso2;}
@@ -49,6 +50,7 @@ function map(nombre_case_X, nombre_case_Y) {
 
           this.arme1 = new Arme(); // function Arme() arme_v2.js
           this.arme1.initArme("lanceur de bisoux intergalactique", 25, $("#arme1")); // initialise l' arme 1 à partir du constructor Arme
+          //this.arsenal["arme1Class"] = $("#arme1");
         }
 
         else if (random == 3 && this.nb_arme_sur_la_map < 2) { // si random est égal à 3 et que l' arme2 n'est pas encore sur la map
@@ -58,6 +60,7 @@ function map(nombre_case_X, nombre_case_Y) {
 
           this.arme2 = new Arme();
           this.arme2.initArme("lanceur de cailloux intergalactique", 35, $("#arme2")); // initialise l' arme 2
+          //this.arsenal["arme2Class"] = $("#arme2");
         }
 
         else if (random == 3 && this.nb_arme_sur_la_map < 3) { // si random est égal à 3 et que l' arme3 n'est pas encore sur la map
@@ -67,6 +70,7 @@ function map(nombre_case_X, nombre_case_Y) {
 
           this.arme3 = new Arme();
           this.arme3.initArme("patator intergalactique", 50, $("#arme3")); // initialise l' arme 3
+          //this.arsenal["arme3Class"] = $("#arme3");
         }
 
         else if (random == 3 && this.nb_arme_sur_la_map < 4) { // si random est égal à 3 et que l' arme4 n'est pas encore sur la map
@@ -76,6 +80,7 @@ function map(nombre_case_X, nombre_case_Y) {
 
           this.arme4 = new Arme();
           this.arme4.initArme("headshotter intergalactique", 100, $("#arme4")); // initialise l' arme 4
+          //this.arsenal["arme4Class"] = $("#arme4");
         }
 
         else if ((random == 7 || random == 13 || random == 9 || random == 15)) { // si random est égal à 7 ou si random est égal à 13 on insert un bloc
