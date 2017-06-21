@@ -56,17 +56,23 @@ function game() {
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
                     self.perso_actuel.deplace(old_index, next_index, "gauche");
                 }
-            } else if (e.which == 38) { // Vers le haut
+            }
+
+            else if (e.which == 38) { // Vers le haut
                 ligne--; // on se dirige vers la ligne précédante
                 var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
                 self.perso_actuel.deplace(old_index, next_index, "haut");
-            } else if (e.which == 39) { // Vers la droite
+            }
+
+            else if (e.which == 39) { // Vers la droite
                 colonne++; // on se dirige vers la colonne suivant
                 if (colonne < self.map.nombre_case_X) {
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
                     self.perso_actuel.deplace(old_index, next_index, "droite");
                 }
-            } else if (e.which == 40) { // Vers le bas
+            }
+
+            else if (e.which == 40) { // Vers le bas
                 ligne++; // on se dirige vers la ligne suivante
                 if(ligne < self.map.nombre_case_Y) {
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
