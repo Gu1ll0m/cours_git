@@ -66,3 +66,17 @@ function fight() {
   };
 
 }
+
+//s' équiper de l'arme 
+/* 
+function equipArme() {
+  this.perso.degat;
+  this.arsenal;
+
+
+  if (arme1Class) {this.perso.degat=this.perso.degat+this.arsenal["arme1Class"].degat;}
+  if (arme2Class) {this.perso.degat=this.perso.degat+this.arsenal["arme2Class"].degat;}
+  if (arme3class) {this.perso.degat=this.perso.degat+this.arsenal["arme3Class"].degat;}
+  if (arme4Class) {this.perso.degat=this.perso.degat+this.arsenal["arme4Class"].degat;}
+}
+*/
