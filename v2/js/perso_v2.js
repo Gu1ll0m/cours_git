@@ -31,8 +31,9 @@ function Perso() {
       if (tab_position[index] == 2) { // 2 est l' id des armes
         alert("Vous vous équipez d'une arme"); 
         $carte.append("<div class='casevideClass' style='left:" + (index % 10) * 100 + "px; top:" + Math.floor(index / 10) * 100 + "px ;position: absolute;'></div>"); // on remplace la case de l'arme par une case vide
-        Arme(); //TODO : la valeur des dégâts de l' arme doit remplacer la valeur des dégâts actuels du personnage
-
+        Arme(); 
+        //equipArme();//TODO : la valeur des dégâts de l' arme doit remplacer la valeur des dégâts actuels du personnage
+        
         if (mvt == "gauche") { // déplacement à gauche
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
         }
@@ -86,3 +87,4 @@ function Perso() {
   }
 
 }
+
