@@ -3,12 +3,12 @@
 //================================================================================================================================================//
 
 // attaque un personnage cible
-function fight() {
+function fight(perso1, perso2, perso_actuel) {
 
   // déclaration des perso
-  this.perso1;
-  this.perso2;
-  this.perso_actuel;
+  this.perso1=perso1;
+  this.perso2=perso2;
+  this.perso_actuel=perso_actuel;
   this.cible = function() {
     if (this.perso_actuel = this.perso1); {
       this.cible = this.perso2;
@@ -43,6 +43,7 @@ function fight() {
         alert(this.nom + " attaque " + cible.nom + " et lui fait " + degats + " points de dégâts");
         this.cible.sante = this.cible.sante - degats; // les points de vie de la cible sont diminué de la valeur des dégâts de l'arme
         if (this.cible.sante > 0) {
+          // gérer ici le changement de perso
           alert(this.cible.nom + " a encore " + this.cible.sante + " points de vie");
         }
         else {
