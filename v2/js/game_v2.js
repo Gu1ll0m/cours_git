@@ -1,6 +1,6 @@
-//================================================================================================================================================//
-//============================================================= Objet Game =======================================================================//
-//================================================================================================================================================//
+//=================================================================================================================================================//
+//============================================================= Objet Game ========================================================================//
+//=================================================================================================================================================//
 
 function game() {
     this.compteur_de_tour = 0;
@@ -18,7 +18,10 @@ function game() {
 		// initialise les personnages
 		this.perso1 = this.map.getPerso1();
 		this.perso2 = this.map.getPerso2();
-
+        console.log(this.map.arsenal["arme1Class"].degat); // vérifie l'arme
+        console.log(this.map.arsenal["arme2Class"].degat); // vérifie l'arme
+        console.log(this.map.arsenal["arme3Class"].degat); // vérifie l'arme
+        console.log(this.map.arsenal["arme4Class"].degat); // vérifie l'arme
         // choix aléatoire du joueur qui commence la partie
         if ( nb_aleat(2) > 1 ) {
             this.perso_actuel = this.perso1;
@@ -54,21 +57,21 @@ function game() {
                 colonne--; // on se dirige vers la colonne précedante
                 if(colonne >= 0) { // ne pas sortir de la map
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
-                    self.perso_actuel.deplace(old_index, next_index, "gauche");
+                    self.perso_actuel.deplace(old_index, next_index, "gauche", self.map);
                 }
             }
 
             else if (e.which == 38) { // vers le haut
                 ligne--; // on se dirige vers la ligne précédante
                 var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
-                self.perso_actuel.deplace(old_index, next_index, "haut");
+                self.perso_actuel.deplace(old_index, next_index, "haut", self.map);
             }
 
             else if (e.which == 39) { // vers la droite
                 colonne++; // on se dirige vers la colonne suivant
                 if (colonne < self.map.nombre_case_X) { // ne pas sortir de la map
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
-                    self.perso_actuel.deplace(old_index, next_index, "droite");
+                    self.perso_actuel.deplace(old_index, next_index, "droite", self.map);
                 }
             }
 
@@ -76,7 +79,7 @@ function game() {
                 ligne++; // on se dirige vers la ligne suivante
                 if(ligne < self.map.nombre_case_Y) { // ne pas sortir de la map
                     var next_index = getIndex(ligne, colonne, longueur); // l'index de la case suivante
-                    self.perso_actuel.deplace(old_index, next_index, "bas");
+                    self.perso_actuel.deplace(old_index, next_index, "bas", self.map);
                 }
             }
         });
@@ -84,7 +87,7 @@ function game() {
 
 }
 
-//================================================================================================================================================//
+//=================================================================================================================================================//
 
 var game = new game();
 game.lancementJeu();
