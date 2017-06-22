@@ -18,6 +18,8 @@ function Perso() {
     return description;
   }
 
+  //this.armeActuelle;
+
   // lance la fct mvt() si index n'est ni un bloc ni un perso
   this.deplace = function(old_index, index, mvt) {
     var self = this;
