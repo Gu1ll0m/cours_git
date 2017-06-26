@@ -18,10 +18,10 @@ function game() {
 		// initialise les personnages
 		this.perso1 = this.map.getPerso1();
 		this.perso2 = this.map.getPerso2();
-        console.log(this.map.arsenal["arme1Class"].degat); // vérifie l'arme
-        console.log(this.map.arsenal["arme2Class"].degat); // vérifie l'arme
-        console.log(this.map.arsenal["arme3Class"].degat); // vérifie l'arme
-        console.log(this.map.arsenal["arme4Class"].degat); // vérifie l'arme
+        console.log(this.map.arsenal["arme1Class"].decrireArme()); // vérifie l'arme1
+        console.log(this.map.arsenal["arme2Class"].decrireArme()); // vérifie l'arme2
+        console.log(this.map.arsenal["arme3Class"].decrireArme()); // vérifie l'arme3
+        console.log(this.map.arsenal["arme4Class"].decrireArme()); // vérifie l'arme4
         // choix aléatoire du joueur qui commence la partie
         if ( nb_aleat(2) > 1 ) {
             this.perso_actuel = this.perso1;
