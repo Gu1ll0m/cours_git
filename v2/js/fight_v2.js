@@ -7,11 +7,11 @@ function fight(perso1, perso2, perso_actuel) {
 
   // déclaration des perso
   this.cible = function() { // this.cible ne fonctionne pas
-    if (this.perso_actuel = this.perso1); {
+    if (this.perso_actuel == this.perso1); {
       this.cible = this.perso2;
       return this.cible;
     }
-    if (this.perso_actuel = this.perso2); {
+    if (this.perso_actuel == this.perso2); {
       this.cible = this.perso1;
       return this.cible;
     }
