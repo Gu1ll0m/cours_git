@@ -5,20 +5,15 @@
 // attaque un personnage cible
 function fight(perso1, perso2, perso_actuel) {
 
-  // déclaration des perso
-  this.cible = function() { // this.cible ne fonctionne pas
-    if (this.game.perso_actuel == this.perso1); {
-      this.cible = this.perso2;
-      return this.cible;
+// déclaration des perso
+    if (perso_actuel == perso1) {
+      this.cible = perso2;
     }
-    if (this.game.perso_actuel == this.perso2); {
-      this.cible = this.perso1;
-      return this.cible;
+    else if (perso_actuel == perso2) {
+      this.cible = perso1;
     }
-        console.log(this.cible); // pour tests
-  }
-
-
+    console.log(this.cible); // retourne la valeur de this.cible
+  
 
   var choix; // variable choix => 2 choix possibles = attaquer ou défendre
   while (choix !== "0") {
@@ -30,8 +25,8 @@ function fight(perso1, perso2, perso_actuel) {
 
     var choix = prompt("Choisissez une option : ");
 
-    if (choix = 1) {attaquer();}
-    if (choix = 2) {defendre();}
+    if (choix == 1) {attaquer();}
+    if (choix == 2) {defendre();}
     else {console.log("Vous avez saisi un autre chiffre que 1 ou 2, le programme ne comprend pas votre choix !");};
 
 
