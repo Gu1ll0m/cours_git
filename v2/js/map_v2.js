@@ -45,7 +45,7 @@ function map(nombre_case_X, nombre_case_Y) {
         else if (random == 3 && this.nb_arme_sur_la_map < 1) { // si random est égal à 3 et que l' arme1 n'est pas encore sur la map
           $carte.append("<div class='arme1Class'></div>"); // on ajoute la div arme 1
           this.nb_arme_sur_la_map++; // on ajoute 1 au nombre d'arme sur la map
-          tab_position.push("arme1Class"); //id de l' arme 1
+          tab_position.push("arme1Class"); // 2 est l' id des armes
 
           this.arme1 = new Arme(); // function Arme() arme_v2.js
           this.arme1.initArme("lanceur de bisoux intergalactique", 25, $("#arme1")); // initialise l' arme 1 à partir du constructor Arme
