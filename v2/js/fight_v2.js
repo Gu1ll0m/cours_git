@@ -71,7 +71,6 @@ function fight(perso1, perso2, perso_actuel) {
     }
   }
 
-    break;
   };
 
 }
