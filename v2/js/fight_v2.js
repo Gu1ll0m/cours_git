@@ -6,30 +6,24 @@
 function fight(perso1, perso2, perso_actuel) {
 
 // déclaration des perso
-    if (perso_actuel == perso1) {
-      this.cible = perso2;
-    }
-    else if (perso_actuel == perso2) {
-      this.cible = perso1;
-    }
+    if (perso_actuel == perso1) {this.cible = perso2;}
+    else if (perso_actuel == perso2) {this.cible = perso1;}
     console.log(this.cible); // retourne la valeur de this.cible
   
+// variable choix => 2 choix possibles = attaquer ou défendre
+    var choix; 
 
-  var choix; // variable choix => 2 choix possibles = attaquer ou défendre
-  while (choix !== "0") {
+    while (perso1.sante > 0 || perso2.sante >0) { // boucle qui test les points de vie des persos 1 et 2
 
     alert("Presser 1 pour attaquer");
     alert("Presser 2 pour vous défendre");
-
-    //TODO : insérer une boucle tant que this.cible.sante > o  
 
     var choix = prompt("Choisissez une option : ");
 
     if (choix == 1) {attaquer();}
     if (choix == 2) {defendre();}
 
-    //else {console.log("Vous avez saisi un autre chiffre que 1 ou 2, le programme ne comprend pas votre choix !");};
-
+      
 
     // déroulement de l' attaque
     function attaquer() {
@@ -60,16 +54,18 @@ function fight(perso1, perso2, perso_actuel) {
       }
     };
 
+
+
     // déroulement de la défense
     function defendre() {
 
-    if(perso_actuel.posture == 0){ // si notre perso est en posture d' attaque
+    if(perso_actuel.posture == 0) { // si notre perso est en posture d' attaque
     perso_actuel.posture = 1; // on la passe en posture de défense 
-    this.cible.degat=this.cible.degat/2; // les dégats de la cible sont divisé par 2
-
+    this.cible.degat=this.cible.degat / 2; // les dégats de la cible sont divisé par 2
+    
       console.log(this.cible.degat);
     }
-  }
+  };
 
   };
 
