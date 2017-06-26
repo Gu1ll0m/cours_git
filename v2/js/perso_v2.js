@@ -10,6 +10,7 @@ function Perso() {
     this.sante = sante;
     this.degat = degat;
     this.elm = elm;
+    this.posture = 0; // 0 correspond à la posture d' attaque, 1 à la posture de défense.
   }
 
   // renvoie la description des personnages
@@ -56,7 +57,7 @@ function Perso() {
 
       else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // "Alien" et 4 sont les id des personnages
         alert("FIGHT"); 
-        fight(); // ici fonction fight() fight.js
+        fight(map.getPerso1(),map.getPerso2(),self); // ici fonction fight(), self = this.perso_actuel (ligne 25)
       }
 
 
@@ -76,7 +77,7 @@ function Perso() {
         else if (mvt == "bas") { // déplacement en bas
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
-        console.log(this.degat); // retourne la valeur des dégats.
+        //console.log(this.degat); // retourne la valeur des dégats.
       }
 
 
