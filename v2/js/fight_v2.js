@@ -42,8 +42,7 @@ function fight(perso1, perso2, perso_actuel) {
 
       if (this.cible.sante > 0) { // la cible à des points de vie
 
-        var degats = this.game.perso_actuel.degat;
-        alert(this.game.perso_actuel.nom + " attaque " + this.cible.nom + " et lui fait " + degats + " points de dégâts");
+        alert(this.game.perso_actuel.nom + " attaque " + this.cible.nom + " et lui fait " + this.game.perso_actuel.degat + " points de dégâts");
         this.cible.sante = this.cible.sante - this.game.perso_actuel.degat; // les points de vie de la cible sont diminué de la valeur des dégâts de l'arme
         if (this.cible.sante > 0) {
           // gérer ici le changement de perso
