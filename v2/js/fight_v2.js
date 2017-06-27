@@ -5,6 +5,8 @@
 // attaque un personnage cible
 function fight(perso1, perso2, perso_actuel) {
 
+  compteur_de_tour_while = 0;
+
   // déclaration des perso
   if (perso_actuel == perso1) {
     this.cible = perso2;
@@ -18,7 +20,17 @@ function fight(perso1, perso2, perso_actuel) {
 
   while (perso1.sante > 0 || perso2.sante > 0) { // boucle qui test les points de vie des persos 1 et 2
 
-    alert("Presser 1 pour attaquer");
+  // incrémente le compteur_de_tour_while et change de this.perso_actuel si >=1
+  this.verifieCompteurWhile = function() {
+    compteur_de_tour_while++;
+    if (compteur_de_tour_while > 0) {
+      perso_actuel == perso1 ? perso_actuel = perso2 : perso_actuel = perso1;
+      compteur_de_tour_while = 0;
+      alert("changement perso");
+    }
+  };
+
+      alert("Presser 1 pour attaquer");
     alert("Presser 2 pour vous défendre");
 
     var choix = prompt("Choisissez une option : ");
@@ -29,6 +41,7 @@ function fight(perso1, perso2, perso_actuel) {
     if (choix == 2) {
       defendre();
     }
+    verifieCompteurWhile();
 
 
     // déroulement de l' attaque
