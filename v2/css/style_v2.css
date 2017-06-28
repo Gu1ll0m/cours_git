@@ -127,14 +127,14 @@ h1 {
     background-repeat: no-repeat;
     background-size: contain;
 }
-/*
+
 .joueurClass {
   z-index: 4;
   width: 10%;
   height: 40%;
   margin: 10px;
   /*marge extérieure*/
- /* padding: 20px;
+  padding: 20px;
   vertical-align: middle;
   background-color: white;
   border: 1px black solid;
@@ -174,4 +174,4 @@ h1 {
   z-index: 4;
   position: relative;
 }
-*/
+
