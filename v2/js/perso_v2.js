@@ -13,6 +13,20 @@ function Perso() {
     this.armeDropped = [];
     this.elm = elm;
     this.posture = 0; // 0 correspond à la posture d' attaque, 1 à la posture de défense.
+    if(this.nom == "Alien") {
+      this.html = {
+        sante:document.getElementById("recapSante1"), 
+        degat:document.getElementById("recapArme1"),
+        posture:document.getElementById("recapPosture1"),
+      }
+    }
+    if(this.nom == "Predator") {
+      this.html = {
+        sante:document.getElementById("recapSante2"), 
+        degat:document.getElementById("recapArme2"),
+        posture:document.getElementById("recapPosture2"),
+      }
+    }
   }
 
   // renvoie la description des personnages
@@ -20,6 +34,13 @@ function Perso() {
     var description = this.nom + "possède" + this.sante + "et fait " + this.degat + " points de dégâts avec son arme";
     return description;
   }
+
+  this.updateInfo = function() {
+    this.html.sante.innerHTML=this.sante;
+    this.html.degat.innerHTML=this.degat;
+    this.html.posture.innerHTML=this.posture;
+  }
+
 
   // lance la fct mvt() si index n'est ni un bloc ni un perso
   this.deplace = function(old_index, index, mvt, map) {
