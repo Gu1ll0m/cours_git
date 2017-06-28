@@ -5,17 +5,17 @@
 // attaque un personnage cible
 function fight(perso1, perso2, perso_actuel) {
 
-  // variable choix => 2 choix possibles = attaquer ou défendre
-  var choix;
-
-  while (this.cible.sante > 0 && perso_actuel.sante > 0) { // boucle qui test les points de vie des persos 1 et 2
-
   // déclaration des perso
   if (perso_actuel == perso1) {
     this.cible = perso2;
   } else if (perso_actuel == perso2) {
     this.cible = perso1;
   }
+
+  // variable choix => 2 choix possibles = attaquer ou défendre
+  var choix;
+
+  while (this.cible.sante > 0 && perso_actuel.sante > 0) { // boucle qui test les points de vie des persos 1 et 2
 
     alert("Presser 1 pour attaquer");
     alert("Presser 2 pour vous défendre");
@@ -62,10 +62,10 @@ function fight(perso1, perso2, perso_actuel) {
       }
     };
 
-  if (choix == 1) {
+  if (choix == 1) { // si choix 1 on attaque
     attaquer();
   }
-  if (choix == 2) {
+  if (choix == 2) { // si choix 2 on défend
     defendre();
   }
 // intervertir les 2 variables
