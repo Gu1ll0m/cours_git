@@ -18,10 +18,10 @@ function game() {
     // initialise les personnages
     this.perso1 = this.map.getPerso1();
     this.perso2 = this.map.getPerso2();
-    console.log(this.map.arsenal["arme1Class"].decrireArme()); // vérifie l'arme1
-    console.log(this.map.arsenal["arme2Class"].decrireArme()); // vérifie l'arme2
-    console.log(this.map.arsenal["arme3Class"].decrireArme()); // vérifie l'arme3
-    console.log(this.map.arsenal["arme4Class"].decrireArme()); // vérifie l'arme4
+    //console.log(this.map.arsenal["arme1Class"].decrireArme()); // vérifie l'arme1
+    //console.log(this.map.arsenal["arme2Class"].decrireArme()); // vérifie l'arme2
+    //console.log(this.map.arsenal["arme3Class"].decrireArme()); // vérifie l'arme3
+    //console.log(this.map.arsenal["arme4Class"].decrireArme()); // vérifie l'arme4
 
     // choix aléatoire du joueur qui commence la partie
     if (nb_aleat(2) > 1) {
@@ -32,7 +32,6 @@ function game() {
       alert("le joueur 2 commence");
     }
     this.toucheEnfonce();
-
   };
 
   // incrémente le compteur_de_tour et change de this.perso_actuel si > 3
@@ -44,6 +43,7 @@ function game() {
       alert("changement perso");
     }
   };
+
 
   //permet de réagir à l'appui de touche sur le clavier
   this.toucheEnfonce = function() {
