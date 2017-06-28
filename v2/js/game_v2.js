@@ -18,6 +18,7 @@ function game() {
     // initialise les personnages
     this.perso1 = this.map.getPerso1();
     this.perso2 = this.map.getPerso2();
+    console.log(this.perso1);
     //console.log(this.map.arsenal["arme1Class"].decrireArme()); // vérifie l'arme1
     //console.log(this.map.arsenal["arme2Class"].decrireArme()); // vérifie l'arme2
     //console.log(this.map.arsenal["arme3Class"].decrireArme()); // vérifie l'arme3
@@ -37,6 +38,8 @@ function game() {
   // incrémente le compteur_de_tour et change de this.perso_actuel si > 3
   this.verifieCompteur = function() {
     this.compteur_de_tour++;
+    this.perso1.updateInfo();
+    this.perso2.updateInfo();
     if (this.compteur_de_tour >= 3) {
       this.perso_actuel == this.perso1 ? this.perso_actuel = this.perso2 : this.perso_actuel = this.perso1;
       this.compteur_de_tour = 0;
@@ -51,6 +54,7 @@ function game() {
     var self = this;
 
     $(document).keydown(function(e) { //où se trouve le perso
+
 
       var old_index = getIndexPerso(self.perso_actuel); // position actuelle du perso avant déplacement
 
