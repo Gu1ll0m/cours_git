@@ -26,10 +26,10 @@ function game() {
     // choix aléatoire du joueur qui commence la partie
     if (nb_aleat(2) > 1) {
       this.perso_actuel = this.perso1;
-      alert("le joueur 1 commence");
+      alert(this.perso1.nom + " commence la partie.");
     } else {
       this.perso_actuel = this.perso2;
-      alert("le joueur 2 commence");
+      alert(this.perso2.nom + " commence la partie.");
     }
     this.toucheEnfonce();
   };
@@ -40,7 +40,7 @@ function game() {
     if (this.compteur_de_tour >= 3) {
       this.perso_actuel == this.perso1 ? this.perso_actuel = this.perso2 : this.perso_actuel = this.perso1;
       this.compteur_de_tour = 0;
-      alert("changement perso");
+      alert("changement de joueur, au tour de "+ this.perso_actuel.nom + " de jouer.");
     }
   };
 
