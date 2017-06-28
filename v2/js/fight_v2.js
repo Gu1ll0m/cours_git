@@ -17,13 +17,10 @@ function fight(perso1, perso2, perso_actuel) {
 
   while (this.cible.sante > 0 && perso_actuel.sante > 0) { // boucle qui test les points de vie des persos 1 et 2
 
-    alert("Presser 1 pour attaquer");
-    alert("Presser 2 pour vous défendre");
-
-    var choix = prompt("Choisissez une option : ");
+    var choix = prompt("Pressez 1 pour attaquer ou 2 pour défendre : ");
 
     console.log(perso_actuel);
-    console.log("Alien PV " + perso1.sante + " " + "Predator PV "+ perso2.sante)
+    console.log("Alien PV " + perso1.sante + " " + "Predator PV " + perso2.sante)
 
 
     // déroulement de l' attaque
@@ -62,17 +59,17 @@ function fight(perso1, perso2, perso_actuel) {
       }
     };
 
-  if (choix == 1) { // si choix 1 on attaque
-    attaquer();
-  }
-  if (choix == 2) { // si choix 2 on défend
-    defendre();
-  }
-// intervertir les 2 variables
-  tmp=perso_actuel; // dans var tmp on met perso_actuel
-  perso_actuel=this.cible; // dans perso_actuel on met this.cible
-  this.cible=tmp; // on met this.cible on met tmp
-  
+    if (choix == 1) { // si choix 1 on attaque
+      attaquer();
+    }
+    if (choix == 2) { // si choix 2 on défend
+      defendre();
+    }
+    // intervertir les 2 variables
+    tmp = perso_actuel; // dans var tmp on met perso_actuel
+    perso_actuel = this.cible; // dans perso_actuel on met this.cible
+    this.cible = tmp; // dans this.cible on met tmp
+
   };
 
 }
