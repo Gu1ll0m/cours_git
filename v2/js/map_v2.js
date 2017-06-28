@@ -32,14 +32,14 @@ function map(nombre_case_X, nombre_case_Y) {
           this.perso1_sur_la_map = true; //la valeur false devient true
           tab_position.push(3); // 3 est l' id d' Alien
           this.perso1 = new Perso(); // function Perso() perso_v2.js
-          this.perso1.initPerso("Alien", 100, 50, $("#perso1"), 0); // initialise Alien à partir du constructor Perso
+          this.perso1.initPerso("Alien", 100, 10, $("#perso1"), 0); // initialise Alien à partir du constructor Perso
         } else if (random == 12 && this.perso2_sur_la_map == false) { // si random est égal à 12 et que le perso2 n'est pas encore sur la map
           $carte.append("<img src='../img/perso2_predator.png' class='persoClass' id='perso2' style='left:" + 100 * j + "px; top:" + 100 * i + "px'>"); // on ajoute la div Predator
           $carte.append("<div class='casevideClass'></div>"); // on ajoute une div casevide sous la div Predator
           this.perso2_sur_la_map = true;
           tab_position.push(4); // 4 est l'id de Predator
           this.perso2 = new Perso();
-          this.perso2.initPerso("Predator", 100, 50, $("#perso2"), 0); // initialise Predator
+          this.perso2.initPerso("Predator", 100, 10, $("#perso2"), 0); // initialise Predator
         } else if (random == 3 && this.nb_arme_sur_la_map < 1) { // si random est égal à 3 et que l' arme1 n'est pas encore sur la map
           $carte.append("<div id='arme1' class='arme1Class'></div>"); // on ajoute la div arme 1
           this.nb_arme_sur_la_map++; // on ajoute 1 au nombre d'arme sur la map
