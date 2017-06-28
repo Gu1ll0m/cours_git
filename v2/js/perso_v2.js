@@ -27,13 +27,13 @@ function Perso() {
     var self = this;
     //console.log(self); // retourne la valeur de self
     if (tab_position[index] == 1) { // 1 est l' id des blocs
-      alert("Vous faîtes face à un bloc");
+      alert(self.nom + " fait face à un bloc.");
     } else if ((tab_position[index] == 0) || (tab_position[index] == "arme1Class") || (tab_position[index] == "arme2Class") || (tab_position[index] == "arme3Class") || (tab_position[index] == "arme4Class") || (tab_position[index] == 3) || (tab_position[index] == 4)) {
       // si on est face à une case vide, une arme, Alien ou Predator
 
       if ((tab_position[index] == "arme1Class") || (tab_position[index] == "arme2Class") || (tab_position[index] == "arme3Class") || (tab_position[index] == "arme4Class")) { // id des armes
         this.degat = map.arsenal[tab_position[index]].degat;
-        alert("Vous vous équipez d'une arme avec " + this.degat + " de dégâts supplémentaires");
+        alert(self.nom +" s'équipe d'une arme avec " + this.degat + " de dégâts supplémentaires.");
         // déposé ici l'arme que l'on avait avant de s' équiper la nouvelle
         if (this.arme == "") {
           $carte.append("<div class='casevideClass' style='left:" + (index % 10) * 100 + "px; top:" + Math.floor(index / 10) * 100 + "px ;position: absolute;'></div>"); // on remplace la case de l'arme par une case vide
@@ -57,7 +57,7 @@ function Perso() {
         }
         console.log(this.degat); // vérifie que les dégâts sont bien équivalent à la valeur de l'arme équipé
       } else if ((tab_position[index] == 3) || (tab_position[index] == 4)) { // "Alien" et 4 sont les id des personnages
-        alert("FIGHT");
+        alert(self.nom + " attaque, FIGHT !!!!!!!");
         fight(map.getPerso1(), map.getPerso2(), self); // ici fonction fight(), self = this.perso_actuel (ligne 25)
       } else { // si on se dirige vers une case vide
         if (mvt == "gauche") { // déplacement à gauche
