@@ -17,11 +17,7 @@ function fight(perso1, perso2, perso_actuel) {
 
   while (this.cible.sante > 0 && perso_actuel.sante > 0) { // boucle qui test les points de vie des persos 1 et 2
 
-    var choix = prompt("Pressez 1 pour attaquer ou 2 pour défendre : ");
-
-    console.log(perso_actuel);
-    console.log("Alien PV " + perso1.sante + " " + "Predator PV " + perso2.sante)
-
+    var choix = prompt(perso_actuel.nom + " : Pressez 1 pour attaquer ou 2 pour défendre : ");
 
     // déroulement de l' attaque
     function attaquer() {
@@ -44,8 +40,7 @@ function fight(perso1, perso2, perso_actuel) {
         }
       }
       if (this.cible.sante <= 0) { // permet de recommencer la partie
-        alert(this.cible.nom + " ne peut pas attaquer : il est mort! La partie est terminé.");
-        alert("Pour rejouer appuyer sur F5");
+        alert(this.cible.nom + " ne peut pas attaquer : il est mort! La partie est terminé. Pour rejouer appuyer sur F5");
       }
     };
 
@@ -55,6 +50,7 @@ function fight(perso1, perso2, perso_actuel) {
       if (perso_actuel.posture == 0) { // si notre perso est en posture d' attaque
         perso_actuel.posture = 1; // on la passe en posture de défense
         this.cible.degat = this.cible.degat / 2; // les dégats de la cible sont divisé par 2
+        alert(perso_actuel.nom + " passe en posture défensif, les dégats de " + this.cible.nom + " sont réduit de 50%.")
         //console.log(this.cible.degat);
       }
     };
@@ -69,6 +65,9 @@ function fight(perso1, perso2, perso_actuel) {
     tmp = perso_actuel; // dans var tmp on met perso_actuel
     perso_actuel = this.cible; // dans perso_actuel on met this.cible
     this.cible = tmp; // dans this.cible on met tmp
+
+    console.log(perso_actuel);
+    console.log("Alien PV " + perso1.sante + " " + "Predator PV " + perso2.sante)
 
   };
 
