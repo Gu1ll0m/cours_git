@@ -63,9 +63,9 @@ function fight(perso1, perso2, perso_actuel) {
     if (choix == 2) { // si choix 2 on défend
       defendre();
     }
-    if ((choix > 2) || (choix !== 'numbers')){ //si la choix saisie par l'utilisateur est supérieur à 5 ou n'est pas un chiffre
+    /*if ((choix > 2) || (choix !== 'numbers')){ //si la choix saisie par l'utilisateur est supérieur à 5 ou n'est pas un chiffre
       alert("Veuillez saisir 1 pour attaquer ou 2 pour défendre, " + perso_actuel.nom + " passe son tour !");
-    }
+    }*/
 
 
     // intervertir les 2 variables
