@@ -54,7 +54,7 @@ function Perso() {
 
       if ((tab_position[index] == "arme1Class") || (tab_position[index] == "arme2Class") || (tab_position[index] == "arme3Class") || (tab_position[index] == "arme4Class")) { // id des armes
         this.degat = map.arsenal[tab_position[index]].degat;
-        alert(self.nom +" s'équipe d'une arme avec " + this.degat + " de dégâts supplémentaires.");
+        alert(self.nom +" s'équipe d'une arme avec " + this.degat + " points de dégâts.");
         // déposé ici l'arme que l'on avait avant de s' équiper la nouvelle
         if (this.arme == "") {
           $carte.append("<div class='casevideClass' style='left:" + (index % 10) * 100 + "px; top:" + Math.floor(index / 10) * 100 + "px ;position: absolute;'></div>"); // on remplace la case de l'arme par une case vide
