@@ -78,5 +78,5 @@ function fight(perso1, perso2, perso_actuel) {
     //console.log("Alien PV " + perso1.sante + " " + "Predator PV " + perso2.sante)
 
   };
-
+  perso_actuel.updateInfo();
 }
