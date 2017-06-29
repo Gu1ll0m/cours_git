@@ -40,7 +40,7 @@ function fight(perso1, perso2, perso_actuel) {
         }
       }
       if (this.cible.sante <= 0) { // permet de recommencer la partie
-        alert(this.cible.nom + " ne peut pas attaquer : il est mort! La partie est terminé. Pour rejouer appuyer sur F5");
+        alert(this.cible.nom + " ne peut pas attaquer : il est mort! La partie est terminé. Pour rejouer afraîchissez la page ");
       }
       perso_actuel.updateInfo();
     };
