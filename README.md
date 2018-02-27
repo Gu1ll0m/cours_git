@@ -2,7 +2,8 @@
 
 
 
-Création d'un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun leur tour pour s'affronter. 
+Création d'un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun leur tour pour s'affronter.
+
 Il s' agit ici d' un match à mort entre Alien et Prédator !!!!!!!
 
 Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
@@ -18,6 +19,7 @@ Chaque case peut être soit vide soit innaccessible.
 2. Insérer un nombre limité d’armes, placé aléatoirement et pourra être récolté par les joueurs qui passeraient dessus.
 
 Chaque arme à un visuel et des caractéristiques qui lui sont propres.
+
 
 3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement de la partie.
 
