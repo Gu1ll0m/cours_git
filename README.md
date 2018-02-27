@@ -11,11 +11,17 @@ Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
 
 ## _Etape 1 : génération de la carte_
 
+> [fonctions globales dans le fichier __util.js__](./js/util.js)
+
+
 1. générer aléatoirement la carte du jeu.
 
 Chaque case peut être soit vide soit innaccessible.
 
 > [fichier __game.js__](./js/game.js)
+
+    this.lancementJeu = function() {....}
+
 
 > [fichier __map.js__](./js/map.js)
 
@@ -55,9 +61,20 @@ Gestion des collisions.
 > [fichier __perso.js__](./js/perso.js)
 
     this.deplace = function(....) {....}
+        // boucle if #69
+        if (mvt == "gauche") {
+          self.elm.css('left', parseInt(self.elm.css('left')) - 100);
+        } else if (mvt == "droite") {
+          self.elm.css('left', parseInt(self.elm.css('left')) + 100);
+        } else if (mvt == "haut") {
+          self.elm.css('top', parseInt(self.elm.css('top')) - 100);
+        } else if (mvt == "bas") {
+          self.elm.css('top', parseInt(self.elm.css('top')) + 100);
+        }
 
 > [fichier __game.js__](./js/game.js)
 
+    this.verifieCompteur = function() {....}
     this.toucheEnfonce = function() {....}
 
 2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.
@@ -79,20 +96,35 @@ Un combat à mort s’engage quand les joueurs se croisent
 
 Plusieurs contraintes :
 
-> Combat au tour par tour.
+1. Combat au tour par tour.
 
-> Les caractéristques de l’arme possédée par le joueur modifie ses dégâts infligés.
+> [fichier __game.js__](./js/game.js)
 
-> Gérer posture offensive (0) et défensive (1)
+    this.verifieCompteur = function() {....}
 
-> Posture défensive (1) :  le joueur encaisse 50% de dégâts en moins qu’en temps normal
 
-> Fin de partie quand les points de vie d'un des deux joueurs tombent à 0.
+2. Les caractéristques de l’arme possédée par le joueur modifie ses dégâts infligés.
+
+> [fichier __fight.js__](./js/fight.js)
+
+    function attaquer() {....}
+
+
+3. Gérer posture offensive (0) et défensive (1) : en posture défensive le joueur encaisse 50% de dégâts en moins qu’en temps normal
+
+> [fichier __fight.js__](./js/fight.js)
+
+    function defendre() {.....}
+
+
+4. Fin de partie quand les points de vie d'un des deux joueurs tombent à 0.
 
 Un message s’affiche et la partie est terminée.
 
-
 > [fichier __fight.js__](./js/fight.js)
+
+    function attaquer() {....}
+
 
 
 
