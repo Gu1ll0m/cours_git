@@ -14,7 +14,7 @@ Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
 > [fonctions globales dans le fichier __util.js__](./js/util.js)
 
 
-1. générer aléatoirement la carte du jeu.
+__1. Générer aléatoirement la carte du jeu.__
 
 Chaque case peut être soit vide soit innaccessible.
 
@@ -28,7 +28,7 @@ Chaque case peut être soit vide soit innaccessible.
     this.genere_carte_aleat = function() {....}
 
 
-2. Insérer un nombre limité d’armes, placé aléatoirement qui seront équipé par les joueurs qui passeront dessus.
+__2. Insérer un nombre limité d’armes, placé aléatoirement qui seront équipé par les joueurs qui passeront dessus.__
 
 Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
@@ -43,7 +43,7 @@ Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
 
 
-3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement de la partie.
+__3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement de la partie.__
 
 > [fichier __map.js__](./js/map.js)
 
@@ -54,7 +54,7 @@ Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
 ## _Etape 2 : les mouvements_
 
-1. Déplacement possible de 3 cases horizontalement et verticalement puis changement de personnage.
+__1. Déplacement possible de 3 cases horizontalement et verticalement puis changement de personnage.__
 
 Gestion des collisions.
 
@@ -71,13 +71,14 @@ Gestion des collisions.
         } else if (mvt == "bas") {
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
+        
 
 > [fichier __game.js__](./js/game.js)
 
     this.verifieCompteur = function() {....}
     this.toucheEnfonce = function() {....}
 
-2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.
+__2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.__
 
 > [fichier __perso.js__](./js/perso.js)
 
@@ -92,32 +93,32 @@ Gestion des collisions.
 
 ## _Etape 3 : le combat !_
 
-Un combat à mort s’engage quand les joueurs se croisent
+Un combat à mort s’engage quand les joueurs se croisent.
 
 Plusieurs contraintes :
 
-1. Combat au tour par tour.
+__1. Combat au tour par tour.__
 
 > [fichier __game.js__](./js/game.js)
 
     this.verifieCompteur = function() {....}
 
 
-2. Les caractéristques de l’arme possédée par le joueur modifie ses dégâts infligés.
+__2. Les caractéristques de l’arme possédée par le joueur modifie ses dégâts infligés.__
 
 > [fichier __fight.js__](./js/fight.js)
 
     function attaquer() {....}
 
 
-3. Gérer posture offensive (0) et défensive (1) : en posture défensive le joueur encaisse 50% de dégâts en moins qu’en temps normal
+__3. Gérer posture offensive (0) et défensive (1) : en posture défensive le joueur encaisse 50% de dégâts en moins qu’en temps normal.__
 
 > [fichier __fight.js__](./js/fight.js)
 
     function defendre() {.....}
 
 
-4. Fin de partie quand les points de vie d'un des deux joueurs tombent à 0.
+__4. Fin de partie quand les points de vie d'un des deux joueurs tombent à 0.__
 
 Un message s’affiche et la partie est terminée.
 
