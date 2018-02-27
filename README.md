@@ -11,7 +11,7 @@ Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
 
 ## _Etape 1 : génération de la carte_
 
-1. générer aléatoirement la carte du jeu. 
+1. générer aléatoirement la carte du jeu.
 
 Chaque case peut être soit vide soit innaccessible.
 
@@ -19,21 +19,29 @@ Chaque case peut être soit vide soit innaccessible.
 
 > [fichier __map.js__](./js/map.js)
 
+    this.genere_carte_aleat = function() {....}
 
-2. Insérer un nombre limité d’armes, placé aléatoirement et pourra être récolté par les joueurs qui passeraient dessus.
+
+2. Insérer un nombre limité d’armes, placé aléatoirement qui seront équipé par les joueurs qui passeront dessus.
 
 Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
 > [fichier __arme.js__](./js/arme.js)
 
-> [fichier __perso.js__](./js/perso.js)
+    this.initArme = function(....) {....}
+    this.decrireArme = function(....) {....}
+
+> [fichier __map.js__](./js/map.js)
+
+    this.genere_carte_aleat = function() {....}
+
 
 
 3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement de la partie.
 
-> [fichier __perso.js__](./js/perso.js)
+> [fichier __map.js__](./js/map.js)
 
-> [fichier __game.js__](./js/game.js)
+    this.genere_carte_aleat = function() {....}
 
 
 
@@ -44,22 +52,32 @@ Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
 Gestion des collisions.
 
-> [fichier __game.js__](./js/game.js)
-
 > [fichier __perso.js__](./js/perso.js)
 
+    this.deplace = function(....) {....}
 
+> [fichier __game.js__](./js/game.js)
+
+    this.toucheEnfonce = function() {....}
 
 2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.
 
 > [fichier __perso.js__](./js/perso.js)
+
+    this.deplace = function(....) {....}
+    // boucle if #103
+        if (this.armeDropped && this.armeDropped[0] == old_index) {
+            tab_position[old_index] = this.armeDropped[1];
+            this.armeDropped[1] = null;
+            this.armeDropped[0] = null;
+      }
 
 
 ## _Etape 3 : le combat !_
 
 Un combat à mort s’engage quand les joueurs se croisent
 
-Plusieurs contraintes : 
+Plusieurs contraintes :
 
 > Combat au tour par tour.
 
@@ -78,7 +96,7 @@ Un message s’affiche et la partie est terminée.
 
 
 
-## Installation du jeu : 
+## Installation du jeu :
 Télécharger [le dossier](https://github.com/Gu1ll0m/projet6_jeu_JS)
 
 Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivant `../P6/html/index.html`, dans votre navigateur `ctrl + o`
