@@ -35,7 +35,6 @@ Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 > [fichier __arme.js__](./js/arme.js)
 
     this.initArme = function(....) {....}
-    this.decrireArme = function(....) {....}
 
 > [fichier __map.js__](./js/map.js)
 
@@ -51,7 +50,6 @@ __3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement d
 
 
 
-
 ## _Etape 2 : les mouvements_
 
 __1. Déplacement possible de 3 cases horizontalement et verticalement puis changement de personnage.__
@@ -60,7 +58,8 @@ Gestion des collisions.
 
 > [fichier __perso.js__](./js/perso.js)
 
-    this.deplace = function(....) {....}
+    this.deplace = function(....) {....
+        ...
         // boucle if #69
         if (mvt == "gauche") {
           self.elm.css('left', parseInt(self.elm.css('left')) - 100);
@@ -71,24 +70,28 @@ Gestion des collisions.
         } else if (mvt == "bas") {
           self.elm.css('top', parseInt(self.elm.css('top')) + 100);
         }
-        
+    }
+
 
 > [fichier __game.js__](./js/game.js)
 
     this.verifieCompteur = function() {....}
     this.toucheEnfonce = function() {....}
 
+
 __2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.__
 
 > [fichier __perso.js__](./js/perso.js)
 
-    this.deplace = function(....) {....}
-    // boucle if #103
+    this.deplace = function(....) {....
+        ...
+        // boucle if #103
         if (this.armeDropped && this.armeDropped[0] == old_index) {
             tab_position[old_index] = this.armeDropped[1];
             this.armeDropped[1] = null;
             this.armeDropped[0] = null;
-      }
+        }
+    }
 
 
 ## _Etape 3 : le combat !_
@@ -96,6 +99,7 @@ __2. En cas de déplacement sur une case contenant une arme, le joueur laisse so
 Un combat à mort s’engage quand les joueurs se croisent.
 
 Plusieurs contraintes :
+
 
 __1. Combat au tour par tour.__
 
@@ -124,12 +128,18 @@ Un message s’affiche et la partie est terminée.
 
 > [fichier __fight.js__](./js/fight.js)
 
-    function attaquer() {....}
-
-
+    function attaquer() {....
+        ...
+        // boucle if #42
+        if (this.cible.sante <= 0) {
+            alert(this.cible.nom + " ne peut pas attaquer : il est mort! La partie est terminé. Pour rejouer rafraîchissez la page !");
+        }
+        perso_actuel.updateInfo();
+    };
 
 
 ## Installation du jeu :
+
 Télécharger [le dossier](https://github.com/Gu1ll0m/projet6_jeu_JS)
 
 Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivant `../P6/html/index.html`, dans votre navigateur `ctrl + o`
