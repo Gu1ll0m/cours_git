@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <title>FPS au tour par tour</title>
+</head>
+
+<body>
+
+
+  <div id="contenu">
+
+    <header>
+      <h1>Jeu en tour par tour </br> Alien vs Predator</h1>
+    </header>
+
+    <div id="joueur1" class="joueurClass">
+      <p><img src="../img/perso1_alien_grand.png"></img>
+      </p>
+      </br>
+      <p>"Santé : "</p><span id="recapSante1" class="recapSanteClass"></span>
+      </br>
+      <p>"Dégats arme : "</p><span id="recapArme1" class="recapArmeClass"></span>
+      </br>
+      <p>"Posture: "</p><span id="recapPosture1" class="recapPostureClass"></span>
+      </br>
+    </div>
+
+
+    <div id="joueur2" class="joueurClass">
+      <p><img src="../img/perso2_predator_grand.png"></img>
+      </p>
+      </br>
+      <p>"Santé : "</p><span id="recapSante2" class="recapSanteClass"></span>
+      </br>
+      <p>"Dégats arme : "</p><span id="recapArme2" class="recapArmeClass"></span>
+      </br>
+      <p>"Posture: "</p><span id="recapPosture2" class="recapPostureClass"></span>
+      </br>
+    </div>
+
+    <div id="map"></div>
+
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/perso.js"></script>
+  <script src="../js/arme.js"></script>
+  <script src="../js/map.js"></script>
+  <script src="../js/game.js"></script>
+  <script src="../js/fight.js"></script>
+
+</body>
+
+</html>
