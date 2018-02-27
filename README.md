@@ -1,71 +1,76 @@
-# projet-6-Creez-un-jeu-de-plateau-tour-par-tour-en-JS
-
-https://openclassrooms.com/projects/creez-un-jeu-de-plateau-tour-par-tour-en-js
+# projet-6 : [__Creez-un-jeu-de-plateau-tour-par-tour-en-JS__](https://openclassrooms.com/projects/creez-un-jeu-de-plateau-tour-par-tour-en-js)
 
 
-## Énoncé
 
-Vous avez jusqu'ici développé des petites applications JavaScript. Il faut maintenant vous lancer dans la création d'un projet plus complet, plus solide... bref plus costaud. ;)
+Création d'un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun leur tour pour s'affronter. 
+Il s' agit ici d' un match à mort entre Alien et Prédator !!!!!!!
 
-Ce projet consistera à créer un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun leur tour pour s'affronter. Comme dans Highlander, il ne peut en rester qu'un !
-
-
-## Etape 1 : génération de la carte
-
-Commencez par générer aléatoirement la carte du jeu. Chaque case peut être soit :
-
-    Vide
-
-    Inaccessible (grisée)
-
-Sur la carte, un nombre limité d’armes (4 maximum) sera placé aléatoirement et pourra être récolté par les joueurs qui passeraient dessus.
-
-Vous inventerez au moins 4 types d’arme dans le jeu, avec des dégâts différents. L’arme par défaut qui équipe les joueurs doit infliger 10 points de dégâts. Chaque arme a un nom et un visuel associé.
-
-Le placement des deux joueurs est lui aussi aléatoire sur la carte au chargement de la partie. Ils ne doivent pas se toucher (ils ne peuvent pas être côte à côte).
-
-__Fichiers à fournir :__
-
-    Code HTML/CSS/JS du projet
+Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
 
 
-## Etape 2 : les mouvements
+## _Etape 1 : génération de la carte_
 
-A chaque tour, un joueur peut se déplacer d’une à trois cases (horizontalement ou verticalement) avant de terminer son tour. Il ne peut évidemment pas passer à travers un obstacle.
+1. générer aléatoirement la carte du jeu. 
 
-Si un joueur passe sur une case contenant une arme, il laisse son arme actuelle sur place et la remplace par la nouvelle.
-
-__Fichiers à fournir :__
-
-    Code HTML/CSS/JS du projet
+Chaque case peut être soit vide soit innaccessible.
 
 
-## Etape 3 : le combat !
+2. Insérer un nombre limité d’armes, placé aléatoirement et pourra être récolté par les joueurs qui passeraient dessus.
 
-Si les joueurs se croisent sur des cases adjacentes (horizontalement ou verticalement), un combat à mort s’engage.
+Chaque arme à un visuel et des caractéristiques qui lui sont propres.
 
-Lors d'un combat, le fonctionnement du jeu est le suivant :
-
-    Chacun attaque à son tour
-
-    Les dégâts infligés dépendent de l’arme possédée par le joueur
-
-    Le joueur peut choisir d’attaquer ou de se défendre contre le prochain coup
-
-    Lorsque le joueur se défend, il encaisse 50% de dégâts en moins qu’en temps normal
-
-    Dès que les points de vie d’un joueur (initialement à 100) tombent à 0 , celui-ci a perdu. Un message s’affiche et la partie est terminée.
-
-__Fichiers à fournir :__
-
-    Code HTML/CSS/JS du projet
+3. Insérer les deux joueurs de façon aléatoire sur la carte au chargement de la partie.
 
 
-__Compétences à valider__
+> [fichier __game.js__](./js/game.js)
+> [fichier __map.js__](./js/map.js)
+> [fichier __arme.js__](./js/arme.js)
+> [fichier __perso.js__](./js/perso.js)
 
->Mettre en oeuvre la bibliothèque jQuery dans une application web
 
->Concevoir une architecture d'application JavaScript réutilisable
 
->Développer une application JavaScript orientée objet
+## _Etape 2 : les mouvements_
+
+1. Déplacement possible de 3 cases horizontalement et verticalement puis changement de personnage.
+
+Gestion des collisions.
+
+2. En cas de déplacement sur une case contenant une arme, le joueur laisse son arme actuelle sur place et la remplace par la nouvelle.
+
+> [fichier __game.js__](./js/game.js)
+> [fichier __map.js__](./js/map.js)
+> [fichier __arme.js__](./js/arme.js)
+> [fichier __perso.js__](./js/perso.js)
+
+
+## _Etape 3 : le combat !_
+
+Un combat à mort s’engage quand les joueurs se croisent
+
+Plusieurs contraintes : 
+
+> Combat au tour par tour.
+
+> Les caractéristques de l’arme possédée par le joueur modifie ses dégâts infligés.
+
+> Gérer posture offensive et défensive
+
+> Posture défensive :  le joueur encaisse 50% de dégâts en moins qu’en temps normal
+
+> Fin de partie quand les points de vie d'un des deux joueurs tombent à 0.
+
+Un message s’affiche et la partie est terminée.
+
+> [fichier __game.js__](./js/game.js)
+> [fichier __map.js__](./js/map.js)
+> [fichier __arme.js__](./js/arme.js)
+> [fichier __perso.js__](./js/perso.js)
+> [fichier __fight.js__](./js/fight.js)
+
+
+
+## Installation du jeu : 
+Télécharger [le dossier](https://github.com/Gu1ll0m/projet6_jeu_JS)
+
+Ouvrir le fichier __index.html__, que vous trouverez en suivant le chemin suivant `../P6/html/index.html`, dans votre navigateur `ctrl + o`
 
