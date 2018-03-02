@@ -28,9 +28,9 @@ Chaque case peut être soit vide soit innaccessible.
     this.genere_carte_aleat = function() {....}
 
 
-__2. Insérer un nombre limité d’armes, placé aléatoirement qui seront équipé par les joueurs qui passeront dessus.__
+__2. Insérer un nombre limité d’armes, placées aléatoirement et droppable par les joueurs qui passeront dessus.__
 
-Chaque arme à un visuel et des caractéristiques qui lui sont propres.
+Chaque arme a un visuel et des caractéristiques qui lui sont propres.
 
 > [fichier __arme.js__](./js/arme.js)
 
