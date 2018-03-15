@@ -6,6 +6,8 @@ Création d'un jeu en ligne en JavaScript dans lequel 2 joueurs évoluent chacun
 
 Il s' agit ici d' un match à mort entre __Alien__ et __Prédator__ !!!!!!!
 
+![img](screenshotP6.png)
+
 Recap des  [__fichiers et fonctions__](recap_fonction.pdf) de notre jeu.
 
 
