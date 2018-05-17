@@ -35,12 +35,12 @@ function Perso() {
     return description;
   }
 
+  // met à jour les inforamtions de santé, dégâts et posture en cas de combat
   this.updateInfo = function() {
     this.html.sante.innerHTML=this.sante;
     this.html.degat.innerHTML=this.degat;
     this.html.posture.innerHTML=this.posture;
   }
-
 
   // lance la fct mvt() si index n'est ni un bloc ni un perso
   this.deplace = function(old_index, index, mvt, map) {
