@@ -24,6 +24,7 @@ function map(nombre_case_X, nombre_case_Y) {
   this.genere_carte_aleat = function() {
     for (let i = 0; i < this.nombre_case_X; i++) {
       for (let j = 0; j < this.nombre_case_Y; j++) {
+
         const random = nb_aleat(20); // fonction nb_aleat avec en paramètre 20 pour que le rendu soit plus aléatoire
 
         if (random == 1 && this.perso1_sur_la_map == false) { // si random est égal à 1 et que le perso1 n'est pas encore sur la map
