@@ -48,6 +48,8 @@ function fight(perso1, perso2, perso_actuel) {
 
     // déroulement de la défense
     function defendre() {
+      
+      // posture de notre perso
       if (perso_actuel.posture == 0) { // si notre perso est en posture d' attaque
         perso_actuel.posture = 1; // on la passe en posture de défense
         this.cible.degat = this.cible.degat / 2; // les dégats de la cible sont divisé par 2
