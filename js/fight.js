@@ -48,7 +48,7 @@ function fight(perso1, perso2, perso_actuel) {
 
     // déroulement de la défense
     function defendre() {
-      
+
       // posture de notre perso
       if (perso_actuel.posture == 0) { // si notre perso est en posture d' attaque
         perso_actuel.posture = 1; // on la passe en posture de défense
@@ -67,11 +67,7 @@ function fight(perso1, perso2, perso_actuel) {
     }
 
     // intervertir les 2 variables
-    tmp = perso_actuel; // dans var tmp on met perso_actuel
-    perso_actuel = this.cible; // dans perso_actuel on met this.cible
-    this.cible = tmp; // dans this.cible on met tmp
-
-
+    [perso_actuel, this.cible] = [this.cible, perso_actuel]
     //console.log(perso_actuel);
     //console.log("Alien PV " + perso1.sante + " " + "Predator PV " + perso2.sante)
 
